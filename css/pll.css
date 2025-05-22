@@ -1,0 +1,28 @@
+.pll-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  justify-content: center;
+}
+
+.pll-card {
+  background-color: rgb(227, 240, 247);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 30px auto;
+  text-align: center;
+  width:400px;
+  color: rgb(24, 5, 5);
+
+}
+.pll-card p {
+  font-style: bold;
+  font-size: 20px;
+}
+.pll-card span{
+  font-weight: bold;
+  font-size: 20px !important;
+}
+.pll-card img{
+    width: 350px;
+}
