@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(48, 46, 54);
+  background: linear-gradient(to left,rgb(4, 142, 255),rgb(0, 0, 46));
   color: aliceblue;
   margin: 0;
   padding: 0;
@@ -10,30 +10,31 @@ body {
   position: fixed; 
   top: 0;
   left: 0;
-  width: 300px;
+  width: 200px;
   height: 100vh; /* Chiều cao full màn */
   background-color: #0a0505;
-  padding: 20px;
   box-sizing: border-box;
 }
 
 .sidebar a {
   display: block;
-  width: 100%;
+  /* width: 100%; */
   color: white;
-  padding: 10px 0;
+  text-align:left;
+  padding: 10px 30px;
   text-decoration: none;
 }
 
 .sidebar a:hover {
   background-color: #53555a;
+
+}
+.sidebar a:active{
+  background-color:rgb(15, 75, 187);
 }
 
 main {
-  margin-left: 300px; /* Để né sidebar */
+  margin-left: 200px; /* Để né sidebar */
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: calc(100% - 300px);
+  width: calc(100% - 200px);
 }
