@@ -1,27 +1,26 @@
-.pll-grid {
+.oll-alg {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+  margin-left: 100px;
   justify-content: center;
 }
-
-.pll-card {
+img {
+  width: 200px;
+}
+.oll-group {
+  text-align: center;
+  padding: 60px;
+  border-radius: 20px;
+  background-color: rgb(48, 146, 199);
+  margin: auto 100px;
+}
+.oll-card {
   background-color: rgb(227, 240, 247);
   border-radius: 20px;
   padding: 20px;
-  margin: 30px auto;
+
   text-align: center;
-  width: 400px;
+  width: 250px;
   color: rgb(24, 5, 5);
-}
-p {
-  font-style: bold;
-  font-size: 20px;
-}
-span {
-  font-weight: bold;
-  font-size: 20px !important;
-}
-img {
-  width: 350px;
 }
