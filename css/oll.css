@@ -1,26 +1,25 @@
 .oll-alg {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 40px;
   margin-left: 100px;
   justify-content: center;
 }
 img {
-  width: 200px;
+  width: 90%;
 }
 .oll-group {
   text-align: center;
   padding: 60px;
   border-radius: 20px;
   background-color: rgb(48, 146, 199);
-  margin: auto 100px;
+  margin: 100px 80px;
 }
 .oll-card {
   background-color: rgb(227, 240, 247);
   border-radius: 20px;
   padding: 20px;
-
   text-align: center;
-  width: 250px;
+  width: 20vh;
   color: rgb(24, 5, 5);
 }
