@@ -1,25 +1,62 @@
+h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
 .oll-alg {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
-  margin-left: 100px;
+  grid-template-columns: repeat(3, auto);
   justify-content: center;
+  column-gap: 10vh;
+  row-gap: 5vh;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 1000px) {
+  .oll-alg {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .oll-alg {
+    grid-template-columns: 1fr;
+  }
 }
 img {
-  width: 90%;
+  width: 100%;
+  max-width: 150px;
 }
 .oll-group {
   text-align: center;
-  padding: 60px;
   border-radius: 20px;
-  background-color: rgb(48, 146, 199);
-  margin: 100px 80px;
+  margin: 120px;
 }
 .oll-card {
+  margin: 20px auto;
+  font-size: 20px;
   background-color: rgb(227, 240, 247);
   border-radius: 20px;
   padding: 20px;
   text-align: center;
-  width: 20vh;
+  width: 200px;
   color: rgb(24, 5, 5);
+}
+
+h4 {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  border-radius: 10px;
+  background-color: #644747;
+  width: 130vh;
+}
+.introduce{
+  display:flex;
+  justify-content: center;
+}
+.introduce p {
+  margin: auto 100px;
 }

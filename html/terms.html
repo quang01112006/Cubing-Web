@@ -3,16 +3,31 @@
   <head>
     <title>Home - Rubik Trainer</title>
     <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/timer.css">
   </head>
   <body>
     <nav class="sidebar">
       <a href="../index.html">Home</a>
       <a href="./terms.html">Thuật ngữ Cubing</a>
+      <a href="./f2l.html">F2L</a>
       <a href="./oll.html">OLL</a>
       <a href="./pll.html">PLL</a>
+      <a href="./cubeSolver.html">Cube Solver</a>
     </nav>
     <main>
-      <h1>Thuật ngữ rubik</h1>
-     
+      <section id="timer">
+        <div id="scramble">R2 D2 U2 F' L2 B' L2 R2 F' U2 R2 F2 R D' U2 L' B2 U R2 F R2 U2</div>
+        <div id="time"> <span>00</span>: <span>00</span>: <span>00</span> </div>
+      </section>
+      <section id="timer-footer">
+        <div id="avg">
+
+        </div>
+        <div class="line"></div>
+        <div id="solves">
+
+        </div>
+      </section>
+      <script src="../js/timer.js"></script>
   </body>
 </html>

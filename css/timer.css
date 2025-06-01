@@ -1,0 +1,45 @@
+#timer {
+  display: flex;
+  flex-direction: column;
+  margin: 20vh auto;
+}
+#scramble {
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  word-spacing: 10px;
+}
+#time {
+  display: block;
+  margin: 20px auto;
+  font-size: 90px;
+  font-style: bold;
+}
+#timer-footer {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:30px;
+  height: 350px;
+  width:(100%-220px);
+  margin-right: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+}
+#solves {
+  border: solid white;
+  width: 75vh;
+  height: 200px;
+}
+#avg {
+  border: solid red;
+  width: 75vh;
+  height: 200px;
+}
+.line{
+    border: solid rgb(141, 136, 136) 1px;
+    height:100%;
+    width: 0;
+    
+}
