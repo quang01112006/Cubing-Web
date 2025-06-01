@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(to left,rgb(4, 142, 255),rgb(0, 0, 46));
+  background: linear-gradient(to left,rgb(100, 110, 117),rgb(0, 0, 46));
   color: aliceblue;
   margin: 0;
   padding: 0;
@@ -10,8 +10,8 @@ body {
   position: fixed; 
   top: 0;
   left: 0;
-  width: 200px;
-  height: 100vh; /* Chiều cao full màn */
+  width: 20vh;
+  height: 100%; /* Chiều cao full màn */
   background-color: #0a0505;
   box-sizing: border-box;
 }
@@ -35,6 +35,6 @@ body {
 
 main {
   margin-left: 200px; /* Để né sidebar */
-  padding: 20px;
+  padding: 0;
   width: calc(100% - 200px);
 }

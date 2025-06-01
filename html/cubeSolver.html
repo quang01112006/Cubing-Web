@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rubik Solver đơn giản</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; }
+    .face {
+      display: grid;
+      grid-template-columns: repeat(3, 40px);
+      grid-gap: 5px;
+      margin: 10px auto;
+      width: max-content;
+    }
+    .sticker {
+      width: 40px; height: 40px;
+      border: 1px solid #333;
+      cursor: pointer;
+      user-select: none;
+      line-height: 40px;
+      font-weight: bold;
+      font-size: 24px;
+      color: white;
+    }
+    .center {
+      border: 3px solid black;
+      cursor: default;
+    }
+    #solution { margin-top: 20px; font-weight: bold; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h1>Nhập trạng thái Rubik 3x3</h1>
+  <p>Click vào mỗi ô để đổi màu (U, R, F, D, L, B)</p>
+
+  <div id="cube">
+    <!-- 6 faces in order U R F D L B -->
+  </div>
+
+  <button id="solveBtn">Giải Rubik</button>
+  <div id="solution"></div>
+
+  <script src="https://unpkg.com/cubejs/lib/cube.min.js"></script>
+  <script>
+    // Các màu mặt: ký hiệu + màu nền
+    const faces = ['U','R','F','D','L','B'];
+    const colors = {
+      U: {char:'U', color:'#ffffff', text:'#000'}, // white
+      R: {char:'R', color:'#ff0000', text:'#fff'}, // red
+      F: {char:'F', color:'#00ff00', text:'#000'}, // green
+      D: {char:'D', color:'#ffff00', text:'#000'}, // yellow
+      L: {char:'L', color:'#ffa500', text:'#000'}, // orange
+      B: {char:'B', color:'#0000ff', text:'#fff'}, // blue
+    };
+
+    const cubeDiv = document.getElementById('cube');
+
+    // Tạo 6 mặt
+    faces.forEach(face => {
+      const faceDiv = document.createElement('div');
+      faceDiv.className = 'face';
+      faceDiv.dataset.face = face;
+      for(let i=0; i<9; i++){
+        const sticker = document.createElement('div');
+        sticker.className = 'sticker';
+        sticker.dataset.face = face;
+        sticker.dataset.index = i;
+        // Màu tâm thì không đổi được, cố định
+        if(i === 4){
+          sticker.classList.add('center');
+          sticker.style.backgroundColor = colors[face].color;
+          sticker.textContent = colors[face].char;
+          sticker.style.color = colors[face].text;
+          sticker.style.cursor = 'default';
+        } else {
+          // Mặc định màu tâm để dễ nhìn
+          sticker.style.backgroundColor = colors[face].color;
+          sticker.textContent = colors[face].char;
+          sticker.style.color = colors[face].text;
+
+          // Click đổi màu lần lượt các màu trong faces
+          sticker.addEventListener('click', () => {
+            let current = sticker.textContent;
+            let index = faces.indexOf(current);
+            index = (index + 1) % faces.length;
+            const next = faces[index];
+            sticker.textContent = next;
+            sticker.style.backgroundColor = colors[next].color;
+            sticker.style.color = colors[next].text;
+          });
+        }
+        faceDiv.appendChild(sticker);
+      }
+      cubeDiv.appendChild(faceDiv);
+    });
+
+    // Khi bấm nút giải
+    document.getElementById('solveBtn').addEventListener('click', () => {
+      let state = '';
+      // Lấy chuỗi 54 ký tự theo thứ tự mặt U R F D L B
+      for(let face of faces){
+        const faceDiv = document.querySelector(`.face[data-face="${face}"]`);
+        for(let i=0; i<9; i++){
+          const sticker = faceDiv.children[i];
+          state += sticker.textContent;
+        }
+      }
+      // Kiểm tra tính hợp lệ
+      if(state.length !== 54){
+        alert('Chuỗi trạng thái không đủ 54 ô!');
+        return;
+      }
+      // Đếm số ký tự mỗi loại, phải đúng 9 cái mỗi ký tự
+      for(let c of faces){
+        const count = [...state].filter(x => x === c).length;
+        if(count !== 9){
+          alert(`Màu ${c} phải có đúng 9 ô, hiện có ${count} ô!`);
+          return;
+        }
+      }
+      try {
+        const solution = Cube.solve(state);
+        document.getElementById('solution').textContent = 'Giải: ' + solution;
+      } catch (e) {
+        document.getElementById('solution').textContent = 'Lỗi khi giải rubik! Có thể trạng thái không hợp lệ.';
+        console.error(e);
+      }
+    });
+  </script>
+</body>
+</html>
