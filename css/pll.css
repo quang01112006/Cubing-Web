@@ -3,55 +3,210 @@ h1 {
   font-size: 2rem;
 }
 
-.pll-grid {
-  display: grid;
-  grid-template-columns: repeat(3,350px);
-  gap: 70px;
-  padding: 10px 20px;
-  justify-content: center;
-  max-width: 1400px;
-  margin: 20px auto;
+
+
+.sidebar {
+position: fixed;
+top: 0;
+left: 0;
+width: 20vh;
+height: 100%;
+background-color: #0a0505;
+box-sizing: border-box;
 }
 
-@media (max-width: 1400px) {
-  .pll-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.sidebar a {
+display: block;
+color: white;
+text-align:left;
+padding: 10px 30px;
+text-decoration: none;
 }
 
-@media (max-width: 600px) {
-  .pll-grid {
-    grid-template-columns: 1fr;
-  }
+.sidebar a:hover {
+background-color: #53555a;
 }
 
-.pll-card {
-  background-color: rgb(227, 240, 247);
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-  max-width: 350px;
-  color: rgb(24, 5, 5);
-  box-sizing: border-box;
+.sidebar a:active{
+background-color:rgb(15, 75, 187);
 }
 
-p {
-  font-style: bold;
-  font-size: 20px;
+main {
+margin-left: 200px;
+padding: 0;
+width: calc(100% - 200px);
 }
-span {
-  font-weight: bold;
-  font-size: 20px !important;
+
+h1 {
+text-align: center;
+font-size: 2rem;
 }
-img {
-  width: 100%;
-  max-width: 350px;
-  height: auto;
-}
+
 .introduce p {
-  margin: auto 100px;
+margin: auto 100px;
 }
+
 .img-intro {
-  text-align: center;
+text-align: center;
+}
+
+/* New PLL Interface Styles */
+.pll-container {
+max-width: 800px;
+margin: 20px auto;
+background-color: #2c2c2e;
+border-radius: 12px;
+overflow: hidden;
+}
+
+.pll-header {
+background-color: #1c1c1e;
+padding: 16px 20px;
+border-bottom: 1px solid #3a3a3c;
+text-align: center;
+}
+
+.pll-header h2 {
+margin: 0;
+font-size: 18px;
+color: #ffffff;
+}
+
+.pll-list {
+background-color: #2c2c2e;
+}
+
+.pll-item {
+background-color: #1c1c1e;
+margin: 8px 16px;
+border-radius: 8px;
+overflow: hidden;
+cursor: pointer;
+transition: background-color 0.2s;
+}
+
+.pll-item:hover {
+background-color: #2c2c2e;
+}
+
+.pll-item-header {
+padding: 16px;
+display: flex;
+align-items: center;
+gap: 16px;
+}
+
+.pll-image {
+width: 60px;
+height: 60px;
+border-radius: 8px;
+object-fit: cover;
+background-color: #3a3a3c;
+}
+
+.pll-info {
+flex: 1;
+}
+
+.pll-name {
+font-size: 16px;
+font-weight: 600;
+color: #ffffff;
+margin-bottom: 4px;
+}
+
+.pll-algorithm {
+font-family: 'Courier New', monospace;
+font-size: 14px;
+color: #8e8e93;
+letter-spacing: 0.5px;
+line-height: 1.4;
+}
+
+.expand-icon {
+width: 12px;
+height: 12px;
+border: 2px solid #8e8e93;
+border-top: none;
+border-right: none;
+transform: rotate(-45deg);
+transition: transform 0.2s;
+}
+
+.star-icon {
+width: 20px;
+height: 20px;
+cursor: pointer;
+fill: none;
+stroke: #8e8e93;
+stroke-width: 2;
+margin-left: 8px;
+}
+
+.star-icon:hover {
+stroke: #ffd700;
+}
+
+.star-icon.favorited {
+fill: #ffd700;
+stroke: #ffd700;
+}
+
+.pll-item.expanded .expand-icon {
+transform: rotate(45deg);
+}
+
+.pll-item-content {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease;
+}
+
+.pll-item.expanded .pll-item-content {
+max-height: 200px;
+}
+
+.pll-details {
+padding: 0 16px 16px 16px;
+border-top: 1px solid #3a3a3c;
+}
+
+.algorithm-full {
+font-family: 'Courier New', monospace;
+font-size: 16px;
+color: #ffffff;
+background-color: #2c2c2e;
+padding: 12px;
+border-radius: 6px;
+margin-top: 12px;
+letter-spacing: 0.5px;
+text-align: center;
+}
+
+@media (max-width: 768px) {
+main {
+  margin-left: 0;
+  width: 100%;
+}
+
+.sidebar {
+  display: none;
+}
+
+.pll-container {
+  margin: 20px 10px;
+}
+
+.pll-image {
+  width: 50px;
+  height: 50px;
+}
+
+.pll-name {
+  font-size: 14px;
+}
+
+.pll-algorithm {
+  font-size: 12px;
+}
 }
