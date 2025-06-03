@@ -15,7 +15,7 @@
       <a href="./cubeSolver.html">Cube Solver</a>
     </nav>
     <main>
-        <h1>OLL</h1>
+      <h1>OLL</h1>
       <p class="introduce">
         Orientation of the Last Layer (OLL) là bước thứ 3 trong phương pháp
         CFOP. <br />
@@ -23,343 +23,1348 @@
       </p>
 
       <div class="oll-container">
-        <!-- nhóm 1 -->
-        <section class="oll-group">
-          <h4>Nhóm 1: 4 cạnh (2 look OLL)</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/1.0.webp" />
-              <p>(R U R' U) R U2 R'</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/1.1.webp" />
-              <p>R' U' R U' R' U2 R</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/1.2.jpg" />
-              <p>(r U R' U') (r' F R F')</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/1.3.webp" />
-              <p>y F' r U R' U' r' F R</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/1.4.webp" />
-              <p>(R2 D R' U2) (R D' R' U2) R'</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/1.5.webp" />
-              <p>R U2 (R2 U' R2 U' R2) U2 R</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/1.6.webp" />
-              <p>(R U R' U) R U' R' U R U2 R'</p>
-            </div>
-          </div>
-        </section>
+        <div class="oll-header">
+          <h2>Nhóm 1: 2-LOOK OLL</h2>
+        </div>
 
-        <!-- nhóm 2 -->
-        <section class="oll-group">
-          <h4>Nhóm 2: Dấu chấm</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/2.0.webp" />
-              <p>R U2 (R2 F R F') U2 (R' F R F')</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/2.1.webp" />
-              <p>F (R U R' U') F' f (R U R' U') f'</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/2.2.webp" />
-              <p>y' f (R U R' U') f' U' F (R U R' U') F'</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/2.3.webp" />
-              <p>y' f (R U R' U') f' U F (R U R' U') F'</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/2.4.webp" />
-              <p>R' U2 F (R U R' U') F2 U2 F R</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/2.5.webp" />
-              <p>r U R' U R U2 r2 (U' R U' R') U2 r</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/2.6.webp" />
-              <p>(R U R' U) (R' F R F') U2 (R' F R F')</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/2.7.webp" />
-              <p>(M' U2 M U2) M' U M (U2 M' U2 M)</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- nhóm 3 -->
-
-        <section class="oll-group">
-          <h4>Nhóm 3: Chữ P</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/3.0.webp" />
-              <p>y2 S R U R' U' R' F R f'</p>
-            </div>
-              <div class="oll-card">
-                <img src="../Alg/oll/3.1.webp" />
-                <p>y R' U' F' U F R</p>
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/1.0.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 1</div>
+                <div class="oll-algorithm">(R U R' U) R U2 R'</div>
               </div>
-              <div class="oll-card">
-                <img src="../Alg/oll/3.2.webp" />
-                <p>R' U' F (U R U' R') F' R</p>
-              </div>
-              <div class="oll-card">
-                <img src="../Alg/oll/3.3.webp" />
-                <p>f (R U R' U') f'</p>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
               </div>
             </div>
           </div>
-        </section>
 
-        <!-- nhóm 4 -->
-        <section class="oll-group">
-          <h4>Nhóm 4: Chữ W</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/4.1.webp" />
-              <p>(R' U' R U') (R' U R U) y F R' F' R</p>
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/1.1.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 2</div>
+                <div class="oll-algorithm">R' U' R U' R' U2 R</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
             </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/4.2.jpg" />
-              <p>y2 R' U2 r' D' r U2 r' D R r</p>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
             </div>
           </div>
-        </section>
 
-        <!-- nhóm 5 -->
-        <section class="oll-group">
-          <h4>Nhóm 5: Chữ C</h4>
-          <div class="oll-alg twoAlg">
-            <div class="oll-card">
-              <img src="../Alg/oll/5.1.webp" />
-              <p>y2 F (R U R' U') R' F' r U R U' r'</p>
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/1.2.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 3</div>
+                <div class="oll-algorithm">(r U R' U') (r' F R F')</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
             </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/5.2.jpg" />
-              <p>R' U' (R' F R F') U R</p>
-            </div>
-            
-          </div>
-        </section>
-
-        <!-- nhóm 6 -->
-        <section class="oll-group">
-          <h4>Nhóm 6: Chữ T</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/6.1.webp" />
-              <p>(R U R' U') (R' F R F')</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/6.2.webp" />
-              <p>F (R U R' U') F'</p>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
             </div>
           </div>
-        </section>
 
-        <!-- nhóm 7 -->
-        <section class="oll-group">
-          <h4>Nhóm 7: Chữ I</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/7.1.webp" />
-              <p>F (U R U' R')x2 F'</p>
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/1.3.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 4</div>
+                <div class="oll-algorithm">y F' r U R' U' r' F R</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
             </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/7.2.webp" />
-              <p>F (R U R' U') R F' (r U R' U') r'</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/7.3.webp" />
-              <p>R U2 R2 (U' R U' R') U2 F R F'</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/7.4.webp" />
-              <p>(R U R' U) R U' y R U' R' F'</p>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
             </div>
           </div>
-        </section>
 
-        <!-- nhóm 8 -->
-        <section class="oll-group">
-          <h4>Nhóm 8: Chữ V</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/8.1.webp" />
-              <p>F (R U R' U')x2 F'</p>
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/1.4.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 5</div>
+                <div class="oll-algorithm">(R2 D R' U2) (R D' R' U2) R'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
             </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/8.2.webp" />
-              <p>F' (L' U' L U)x2 F</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/8.3.webp" />
-              <p>r' U r2 U' r2 U' r2 U r'</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/8.4.jpg" />
-              <p>y2 r U' r2 U r2 U r2 U' r</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/8.5.jpg" />
-              <p>y r' U' r (R' U' R U)x2 r' U r</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/8.6.jpg" />
-              <p>r U (R' U R U') (R' U R U2) r'</p>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
             </div>
           </div>
-        </section>
 
-        <!-- nhóm 9 -->
-        <section class="oll-group">
-          <h4>Nhóm 9: Chữ L</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/9.1.jpg" />
-              <p>R' (F R U R') F' R F U' F'</p>
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/1.5.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 6</div>
+                <div class="oll-algorithm">R U2 (R2 U' R2 U' R2) U2 R</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
             </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/9.2.jpg" />
-              <p>r U' r' (U' r U r') y' R' U R</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/9.3.webp" />
-              <p>y2 r U r' (R U R' U') r U' r'</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/9.4.jpg" />
-              <p>r' U' r (R' U' R U) r' U r</p>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
             </div>
           </div>
-        </section>
 
-        <!-- nhóm 10 -->
-        <section class="oll-group">
-          <h4>Nhóm 10: Hình vuông</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/10.1.jpg" />
-              <p>r U2 (R' U' R U') r'</p>
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/1.6.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 7</div>
+                <div class="oll-algorithm">(R U R' U) R U' R' U R U2 R'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
             </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/10.2.jpg" />
-              <p>r' U2 (R U R' U) r</p>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
 
-        <!-- nhóm 11 -->
-        <section class="oll-group">
-          <h4>Nhóm 11: Tia sét lớn</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/11.1.jpg" />
-              <p>R' F (R U R' U') F' U R</p>
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 2: Dot case</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/2.0.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 8</div>
+                <div class="oll-algorithm">R U2 (R2 F R F') U2 (R' F R F')</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
             </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/11.2.jpg" />
-              <p>y2 R U R' F' U' F U R U2 R'</p>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
             </div>
           </div>
-        </section>
 
-        <!-- nhóm 12 -->
-        <section class="oll-group">
-          <h4>Nhóm 12: Tia sét nhỏ</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/12.1.jpg" />
-              <p>r (U R' U R) U2 r'</p>
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/2.1.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 9</div>
+                <div class="oll-algorithm">
+                  F (R U R' U') F' f (R U R' U') f'
+                </div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
             </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/12.2.jpg" />
-              <p>r' (U' R U' R') U2 r</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/12.3.jpg" />
-              <p>y' F (R U R' U') F' U F (R U R' U') F'</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/12.4.jpg" />
-              <p>M (R U R' U) (R U2 R' U) M'</p>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
             </div>
           </div>
-        </section>
 
-        <!-- nhóm 13 -->
-        <section class="oll-group">
-          <h4>Nhóm 13: Con cá</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/13.1.jpg" />
-              <p>(R U R' U') R' F R2 U R' U' F'</p>
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/2.2.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 10</div>
+                <div class="oll-algorithm">
+                  y' f (R U R' U') f' U' F (R U R' U') F'
+                </div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
             </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/13.2.jpg" />
-              <p>(R U R' U) (R' F R F') R U2 R'</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/13.3.jpg" />
-              <p>F (R U' R' U') (R U R' F')</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/13.4.jpg" />
-              <p>R U2 (R2 F R F') R U2 R'</p>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
             </div>
           </div>
-        </section>
 
-        <!-- nhóm 14 -->
-        <section class="oll-group">
-          <h4>Nhóm 14: Cờ lê</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/14.1.jpg" />
-              <p>y (R U R' U') R U' R' F' U' (F R U R')</p>
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/2.3.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 11</div>
+                <div class="oll-algorithm">
+                  y' f (R U R' U') f' U F (R U R' U') F'
+                </div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
             </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/14.2.jpg" />
-              <p>R2' U R' B' R U' R2' U l U l'</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/14.3.jpg" />
-              <p>R' U' R U' R' U2 R (F R U R' U' F')</p>
-            </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/14.4.jpg" />
-              <p>y2 (R U R' U) R U2 R' (F R U R' U' F')</p>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
             </div>
           </div>
-        </section>
 
-        <!-- nhóm 15 -->
-        <section class="oll-group">
-          <h4>Nhóm 15: 4 góc</h4>
-          <div class="oll-alg">
-            <div class="oll-card">
-              <img src="../Alg/oll/15.1.jpg" />
-              <p>(r U R' U') r' R U R U' R'</p>
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/2.4.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 12</div>
+                <div class="oll-algorithm">R' U2 F (R U R' U') F2 U2 F R</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
             </div>
-            <div class="oll-card">
-              <img src="../Alg/oll/15.2.jpg" />
-              <p>(R U R' U') M' (U R U' r')</p>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
             </div>
           </div>
-        </section>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/2.5.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 13</div>
+                <div class="oll-algorithm">
+                  r U R' U R U2 r2 (U' R U' R') U2 r
+                </div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/2.6.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 14</div>
+                <div class="oll-algorithm">
+                  (R U R' U) (R' F R F') U2 (R' F R F')
+                </div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/2.7.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 15</div>
+                <div class="oll-algorithm">
+                  (M' U2 M U2) M' U M (U2 M' U2 M)
+                </div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 3: P shape</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/3.0.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 16</div>
+                <div class="oll-algorithm">y2 S R U R' U' R' F R f'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/3.1.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 17</div>
+                <div class="oll-algorithm">y R' U' F' U F R</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/3.2.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 18</div>
+                <div class="oll-algorithm">R' U' F (U R U' R') F' R</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/3.3.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 19</div>
+                <div class="oll-algorithm">f (R U R' U') f'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- nhom 4 -->
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 4: W shape</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/4.1.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 20</div>
+                <div class="oll-algorithm">
+                  (R' U' R U') (R' U R U) y F R' F' R
+                </div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/4.2.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 21</div>
+                <div class="oll-algorithm">y2 R' U2 r' D' r U2 r' D R r</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 5: C shape</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/5.1.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 22</div>
+                <div class="oll-algorithm">
+                  y2 F (R U R' U') R' F' r U R U' r'
+                </div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/5.2.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 23</div>
+                <div class="oll-algorithm">R' U' (R' F R F') U R</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 6: T shape</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/6.1.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 24</div>
+                <div class="oll-algorithm">(R U R' U') (R' F R F')</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/6.2.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 25</div>
+                <div class="oll-algorithm">F (R U R' U') F'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 7: I shape</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/7.1.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 26</div>
+                <div class="oll-algorithm">F (U R U' R')x2 F'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/7.2.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 27</div>
+                <div class="oll-algorithm">
+                  F (R U R' U') R F' (r U R' U') r'
+                </div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/7.3.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 28</div>
+                <div class="oll-algorithm">R U2 R2 (U' R U' R') U2 F R F'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/7.4.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 29</div>
+                <div class="oll-algorithm">(R U R' U) R U' y R U' R' F'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 8: V shape</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/8.1.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 30</div>
+                <div class="oll-algorithm">F (R U R' U')x2 F'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/8.2.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 31</div>
+                <div class="oll-algorithm">F' (L' U' L U)x2 F</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/8.3.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 32</div>
+                <div class="oll-algorithm">r' U r2 U' r2 U' r2 U r'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/8.4.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 33</div>
+                <div class="oll-algorithm">y2 r U' r2 U r2 U r2 U' r</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/8.5.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 34</div>
+                <div class="oll-algorithm">y r' U' r (R' U' R U)x2 r' U r</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/8.6.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 35</div>
+                <div class="oll-algorithm">r U (R' U R U') (R' U R U2) r'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 9: L shape</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/9.1.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 36</div>
+                <div class="oll-algorithm">R' (F R U R') F' R F U' F'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/9.2.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 37</div>
+                <div class="oll-algorithm">r U' r' (U' r U r') y' R' U R</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/9.3.webp" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 38</div>
+                <div class="oll-algorithm">y2 r U r' (R U R' U') r U' r'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/9.4.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 39</div>
+                <div class="oll-algorithm">r' U' r (R' U' R U) r' U r</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 10: Square</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/10.1.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 40</div>
+                <div class="oll-algorithm">r U2 (R' U' R U') r'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/10.2.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 41</div>
+                <div class="oll-algorithm">r' U2 (R U R' U) r</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 11: Lightning</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/11.1.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 42</div>
+                <div class="oll-algorithm">R' F (R U R' U') F' U R</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/11.2.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 43</div>
+                <div class="oll-algorithm">y2 R U R' F' U' F U R U2 R'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 12: Small lightning</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/12.1.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 44</div>
+                <div class="oll-algorithm">r (U R' U R) U2 r'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/12.2.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 45</div>
+                <div class="oll-algorithm">r' (U' R U' R') U2 r</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/12.3.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 46</div>
+                <div class="oll-algorithm">
+                  y' F (R U R' U') F' U F (R U R' U') F'
+                </div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/12.4.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 47</div>
+                <div class="oll-algorithm">M (R U R' U) (R U2 R' U) M'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 13: Fish shape</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/13.1.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 498</div>
+                <div class="oll-algorithm">(R U R' U') R' F R2 U R' U' F'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/13.2.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 49</div>
+                <div class="oll-algorithm">(R U R' U) (R' F R F') R U2 R'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/13.3.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 50</div>
+                <div class="oll-algorithm">F (R U' R' U') (R U R' F')</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/13.4.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 51</div>
+                <div class="oll-algorithm">R U2 (R2 F R F') R U2 R'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 14: Cl</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/14.1.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 52</div>
+                <div class="oll-algorithm">
+                  y (R U R' U') R U' R' F' U' (F R U R')
+                </div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/14.2.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 53</div>
+                <div class="oll-algorithm">R2' U R' B' R U' R2' U l U l'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/14.3.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 54</div>
+                <div class="oll-algorithm">
+                  R' U' R U' R' U2 R (F R U R' U' F')
+                </div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/14.4.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 55</div>
+                <div class="oll-algorithm">
+                  y2 (R U R' U) R U2 R' (F R U R' U' F')
+                </div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="oll-container">
+        <div class="oll-header">
+          <h2>Nhóm 15: Full</h2>
+        </div>
+
+        <div class="oll-list">
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/15.1.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 56</div>
+                <div class="oll-algorithm">(r U R' U') r' R U R U' R'</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oll-item" data-perm="Aa">
+            <div class="oll-item-header">
+              <div class="expand-icon"></div>
+              <img src="../Alg/oll/15.2.jpg" alt="Aa perm" class="oll-image" />
+              <div class="oll-info">
+                <div class="oll-name">OLL 57</div>
+                <div class="oll-algorithm">(R U R' U') M' (U R U' r')</div>
+              </div>
+              <svg class="star-icon" viewBox="0 0 24 24">
+                <polygon
+                  points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
+                />
+              </svg>
+            </div>
+            <div class="oll-item-content">
+              <div class="oll-details">
+                <div class="algorithm-full">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
-    
   </body>
 </html>
