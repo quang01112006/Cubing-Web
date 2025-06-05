@@ -4,168 +4,170 @@ h1 {
 }
 
 .oll-container {
-max-width: 1000px;
-margin: 20px auto;
-background-color: #2c2c2e;
-border-radius: 12px;
-overflow: hidden;
+  max-width: 1000px;
+  margin: 60px auto;
+  background-color: #2c2c2e;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .oll-header {
-background-color: #1c1c1e;
-padding: 16px 20px;
-border-bottom: 1px solid #3a3a3c;
-text-align: center;
+  background-color: #1c1c1e;
+  padding: 16px 20px;
+  border-bottom: 1px solid #3a3a3c;
+  text-align: center;
 }
 
 .oll-header h2 {
-margin: 0;
-font-size: 18px;
-color: #ffffff;
+  margin: 0;
+  font-size: 18px;
+  color: #ffffff;
 }
 
 .oll-list {
-background-color: #2c2c2e;
+  background-color: #2c2c2e;
 }
 
 .oll-item {
-background-color: #1c1c1e;
-margin: 8px 16px;
-border-radius: 8px;
-overflow: hidden;
-cursor: pointer;
-transition: background-color 0.2s;
+  background-color: #1c1c1e;
+  margin: 8px 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .oll-item:hover {
-background-color: #2c2c2e;
+  background-color: #2c2c2e;
 }
 
 .oll-item-header {
-padding: 16px;
-display: flex;
-align-items: center;
-gap: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .oll-image {
-width: 120px;
-height: auto;
-border-radius: 8px;
-background-color: #3a3a3c;
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  background-color: #3a3a3c;
 }
 
 .oll-info {
-flex: 1;
+  flex: 1;
+  padding-left: 40px;
 }
 
 .oll-name {
-font-size: 16px;
-font-weight: 600;
-color: #ffffff;
-margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
 }
 
 .oll-algorithm {
-font-family: "Courier New", monospace;
-font-size: 14px;
-color: #8e8e93;
-letter-spacing: 0.5px;
-line-height: 1.4;
+  font-family: "Courier New", monospace;
+  font-size: 20px;
+  color: #8e8e93;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
 }
 
 .expand-icon {
-width: 12px;
-height: 12px;
-border: 2px solid #8e8e93;
-border-top: none;
-border-right: none;
-transform: rotate(-45deg);
-transition: transform 0.2s;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #8e8e93;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+  transition: transform 0.2s;
 }
 
 .star-icon {
-width: 20px;
-height: 20px;
-cursor: pointer;
-fill: none;
-stroke: #8e8e93;
-stroke-width: 2;
-margin-left: 8px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  fill: none;
+  stroke: #8e8e93;
+  stroke-width: 2;
+  margin-left: 8px;
 }
 
 .star-icon:hover {
-stroke: #ffd700;
+  stroke: #ffd700;
 }
 
 .star-icon.favorited {
-fill: #ffd700;
-stroke: #ffd700;
+  fill: #ffd700;
+  stroke: #ffd700;
 }
 
 .oll-item.expanded .expand-icon {
-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .oll-item-content {
-max-height: 0;
-overflow: hidden;
-transition: max-height 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
 }
 
 .oll-item.expanded .oll-item-content {
-max-height: 200px;
+  max-height: 200px;
 }
 
 .oll-details {
-padding: 0 16px 16px 16px;
-border-top: 1px solid #3a3a3c;
+  padding: 0 16px 16px 16px;
+  border-top: 1px solid #3a3a3c;
 }
 
 .algorithm-full {
-font-family: "Courier New", monospace;
-font-size: 16px;
-color: #ffffff;
-background-color: #2c2c2e;
-padding: 12px;
-border-radius: 6px;
-margin-top: 12px;
-letter-spacing: 0.5px;
-text-align: center;
-}
-
-@media (max-width: 768px) {
-main {
-  margin-left: 0;
-  width: 100%;
-}
-
-.sidebar {
-  display: none;
-}
-
-.oll-container {
-  margin: 20px 10px;
-}
-
-.oll-image {
-  width: 50px;
-  height: 50px;
-}
-
-.oll-name {
-  font-size: 14px;
-}
-
-.oll-algorithm {
-  font-size: 12px;
-}
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #2c2c2e;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 12px;
+  letter-spacing: 0.5px;
+  text-align: center;
 }
 
 .introduce {
   display: flex;
   justify-content: center;
 }
+
 .introduce p {
   margin: auto 100px;
+}
+
+@media (max-width: 768px) {
+  main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .oll-container {
+    margin: 20px 10px;
+  }
+
+  .oll-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .oll-name {
+    font-size: 14px;
+  }
+
+  .oll-algorithm {
+    font-size: 12px;
+  }
 }

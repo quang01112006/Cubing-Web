@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home - Rubik Trainer</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/timer.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="sidebar">
+      <a href="../index.html">Home</a>
+      <a href="./timer.html">Timer</a>
+      <a href="./f2l.html">F2L</a>
+      <a href="./oll.html">OLL</a>
+      <a href="./pll.html">PLL</a>
+      <a href="./cubeSolver.html">Cube Solver</a>
+    </nav>
+    <main>
+      <div id="timer">
+        <div id="scramble"></div>
+        <div id="time">00:00</div>
+      </div>
+
+      <div class="stat-section">
+        <div class="stat-header">
+          <div class="stat-title">Statistics</div>
+          <button class="clear-btn" id="clearBtn" style="display: none">
+            🗑️
+          </button>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div>
+              <div class="stat-name">Pb</div>
+              <div class="stat-value">-</div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div>
+              <div class="stat-name">Worst</div>
+              <div class="stat-value">-</div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div>
+              <div class="stat-name">Ao5</div>
+              <div class="stat-value">-</div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div>
+              <div class="stat-name">Avg</div>
+              <div class="stat-value">-</div>
+            </div>
+          </div>
+
+          <div class="stat-item full-width">
+            <div>
+              <div class="stat-name">Ao12</div>
+              <div class="stat-value">-</div>
+            </div>
+          </div>
+
+          <div class="solves-section">
+            <div class="solves-title">Recent Solves</div>
+            <div class="solves-list">
+              <div class="no-solves-msg">No solves recorded</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="../js/timer.js"></script>
+  </body>
+</html>

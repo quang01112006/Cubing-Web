@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title>Home - Rubik Trainer</title>
@@ -8,7 +8,7 @@
   <body>
     <nav class="sidebar">
       <a href="index.html">Home</a>
-      <a href="./html/terms.html">Thuật ngữ Cubing</a>
+      <a href="./html/timer.html">Thuật ngữ Cubing</a>
       <a href="./f2l.html">F2L</a>
       <a href="./html/oll.html">OLL</a>
       <a href="./html/pll.html">PLL</a>
@@ -20,4 +20,521 @@
     </main>
     
   </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cubing Timer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .timer-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .cube-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 2rem;
+            opacity: 0.5;
+        }
+
+        .cube-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .no-solves {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .scramble {
+            font-family: 'Courier New', monospace;
+            font-size: 1.5rem;
+            color: #ccc;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .timer-display {
+            font-family: 'Courier New', monospace;
+            font-size: 6rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            transition: color 0.2s ease;
+        }
+
+        .timer-display.ready {
+            color: #4ade80;
+        }
+
+        .timer-display.running {
+            color: #60a5fa;
+        }
+
+        .timer-status {
+            color: #888;
+            font-size: 1rem;
+        }
+
+        .stats-section {
+            width: 320px;
+            background: #2d2d2d;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .clear-btn {
+            background: none;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 4px;
+            transition: color 0.2s;
+        }
+
+        .clear-btn:hover {
+            color: #fca5a5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card {
+            background: #404040;
+            padding: 0.75rem;
+            border-radius: 6px;
+        }
+
+        .stat-card.full-width {
+            grid-column: span 2;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-value {
+            font-family: 'Courier New', monospace;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .solves-section {
+            flex: 1;
+        }
+
+        .solves-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .solves-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .solve-item {
+            background: #404040;
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .solve-info {
+            flex: 1;
+        }
+
+        .solve-time {
+            font-family: 'Courier New', monospace;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .solve-meta {
+            color: #888;
+            font-size: 0.75rem;
+        }
+
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 4px;
+            transition: color 0.2s;
+        }
+
+        .delete-btn:hover {
+            color: #fca5a5;
+        }
+
+        .no-solves-msg {
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Scrollbar styling */
+        .solves-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .solves-list::-webkit-scrollbar-track {
+            background: #2d2d2d;
+        }
+
+        .solves-list::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 3px;
+        }
+
+        .solves-list::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-section">
+        <div class="cube-icon" id="cubeIcon">
+            <svg viewBox="0 0 100 100">
+                <g>
+                    <path d="M20 30 L50 10 L80 30 L80 60 L50 80 L20 60 Z"/>
+                    <path d="M20 30 L50 50 L80 30"/>
+                    <path d="M50 50 L50 80"/>
+                    <path d="M20 60 L50 50"/>
+                    <path d="M80 60 L50 50"/>
+                    <path d="M35 20 L35 40"/>
+                    <path d="M65 20 L65 40"/>
+                    <path d="M35 40 L65 40"/>
+                    <path d="M35 55 L35 75"/>
+                    <path d="M20 45 L50 65"/>
+                    <path d="M50 65 L80 45"/>
+                </g>
+            </svg>
+        </div>
+        
+        <div class="no-solves" id="noSolvesMsg">No solves yet</div>
+        
+        <div class="scramble" id="scramble">R U R' U' F R F' U2 R U' R' F R F' U R U' R' U R U' R'</div>
+        
+        <div class="timer-display" id="timerDisplay">0.00</div>
+        
+        <div class="timer-status" id="timerStatus">Hold SPACE to prepare, release to start</div>
+    </div>
+
+    <div class="stats-section">
+        <div class="stats-header">
+            <div class="stats-title">Statistics</div>
+            <button class="clear-btn" id="clearBtn" style="display: none;">
+                🗑️
+            </button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">pb</div>
+                <div class="stat-value" id="pbStat">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">worst</div>
+                <div class="stat-value" id="worstStat">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">avg</div>
+                <div class="stat-value" id="avgStat">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">ao5</div>
+                <div class="stat-value" id="ao5Stat">-</div>
+            </div>
+            <div class="stat-card full-width">
+                <div class="stat-label">ao12</div>
+                <div class="stat-value" id="ao12Stat">-</div>
+            </div>
+        </div>
+
+        <div class="solves-section">
+            <div class="solves-title">Recent Solves</div>
+            <div class="solves-list" id="solvesList">
+                <div class="no-solves-msg">No solves recorded</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class CubingTimer {
+            constructor() {
+                this.time = 0;
+                this.isRunning = false;
+                this.isReady = false;
+                this.solves = [];
+                this.currentScramble = '';
+                this.startTime = 0;
+                this.timerInterval = null;
+
+                this.initElements();
+                this.generateScramble();
+                this.setupEventListeners();
+                this.updateDisplay();
+            }
+
+            initElements() {
+                this.timerDisplay = document.getElementById('timerDisplay');
+                this.timerStatus = document.getElementById('timerStatus');
+                this.scrambleEl = document.getElementById('scramble');
+                this.solvesList = document.getElementById('solvesList');
+                this.clearBtn = document.getElementById('clearBtn');
+                this.noSolvesMsg = document.getElementById('noSolvesMsg');
+                this.cubeIcon = document.getElementById('cubeIcon');
+                
+                // Stats elements
+                this.pbStat = document.getElementById('pbStat');
+                this.worstStat = document.getElementById('worstStat');
+                this.avgStat = document.getElementById('avgStat');
+                this.ao5Stat = document.getElementById('ao5Stat');
+                this.ao12Stat = document.getElementById('ao12Stat');
+            }
+
+            generateScramble() {
+                const moves = ['R', 'L', 'U', 'D', 'F', 'B'];
+                const modifiers = ['', '\'', '2'];
+                let scrambleArray = [];
+                
+                for (let i = 0; i < 20; i++) {
+                    const move = moves[Math.floor(Math.random() * moves.length)];
+                    const modifier = modifiers[Math.floor(Math.random() * modifiers.length)];
+                    scrambleArray.push(move + modifier);
+                }
+                
+                this.currentScramble = scrambleArray.join(' ');
+                this.scrambleEl.textContent = this.currentScramble;
+            }
+
+            formatTime(milliseconds) {
+                const totalSeconds = Math.floor(milliseconds / 1000);
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                const ms = Math.floor((milliseconds % 1000) / 10);
+                
+                if (minutes > 0) {
+                    return `${minutes}:${seconds.toString().padStart(2, '0')}.${ms.toString().padStart(2, '0')}`;
+                }
+                return `${seconds}.${ms.toString().padStart(2, '0')}`;
+            }
+
+            updateTimer() {
+                if (this.isRunning) {
+                    this.time = Date.now() - this.startTime;
+                    this.timerDisplay.textContent = this.formatTime(this.time);
+                }
+            }
+
+            startTimer() {
+                this.isRunning = true;
+                this.isReady = false;
+                this.startTime = Date.now();
+                this.timerDisplay.className = 'timer-display running';
+                this.timerStatus.textContent = 'Solving...';
+                
+                this.timerInterval = setInterval(() => this.updateTimer(), 10);
+            }
+
+            stopTimer() {
+                this.isRunning = false;
+                clearInterval(this.timerInterval);
+                
+                // Save solve
+                const solve = {
+                    id: Date.now(),
+                    time: this.time,
+                    scramble: this.currentScramble,
+                    timestamp: new Date().toLocaleTimeString()
+                };
+                
+                this.solves.push(solve);
+                this.generateScramble();
+                this.updateDisplay();
+                this.resetTimer();
+            }
+
+            resetTimer() {
+                this.time = 0;
+                this.isReady = false;
+                this.timerDisplay.className = 'timer-display';
+                this.timerDisplay.textContent = this.formatTime(0);
+                this.timerStatus.textContent = 'Hold SPACE to prepare, release to start';
+            }
+
+            prepareTimer() {
+                this.isReady = true;
+                this.timerDisplay.className = 'timer-display ready';
+                this.timerStatus.textContent = 'Release to start';
+            }
+
+            calculateStats() {
+                if (this.solves.length === 0) {
+                    return { pb: '-', worst: '-', avg: '-', ao5: '-', ao12: '-' };
+                }
+                
+                const times = this.solves.map(solve => solve.time);
+                const pb = Math.min(...times);
+                const worst = Math.max(...times);
+                const avg = times.reduce((a, b) => a + b, 0) / times.length;
+                
+                // Calculate ao5
+                let ao5 = '-';
+                if (times.length >= 5) {
+                    const last5 = times.slice(-5).sort((a, b) => a - b);
+                    const ao5Times = last5.slice(1, 4);
+                    ao5 = ao5Times.reduce((a, b) => a + b, 0) / ao5Times.length;
+                }
+                
+                // Calculate ao12
+                let ao12 = '-';
+                if (times.length >= 12) {
+                    const last12 = times.slice(-12).sort((a, b) => a - b);
+                    const ao12Times = last12.slice(1, 11);
+                    ao12 = ao12Times.reduce((a, b) => a + b, 0) / ao12Times.length;
+                }
+                
+                return {
+                    pb: this.formatTime(pb),
+                    worst: this.formatTime(worst),
+                    avg: this.formatTime(avg),
+                    ao5: ao5 !== '-' ? this.formatTime(ao5) : '-',
+                    ao12: ao12 !== '-' ? this.formatTime(ao12) : '-'
+                };
+            }
+
+            updateDisplay() {
+                // Update stats
+                const stats = this.calculateStats();
+                this.pbStat.textContent = stats.pb;
+                this.worstStat.textContent = stats.worst;
+                this.avgStat.textContent = stats.avg;
+                this.ao5Stat.textContent = stats.ao5;
+                this.ao12Stat.textContent = stats.ao12;
+
+                // Update solves list
+                if (this.solves.length === 0) {
+                    this.solvesList.innerHTML = '<div class="no-solves-msg">No solves recorded</div>';
+                    this.clearBtn.style.display = 'none';
+                    this.noSolvesMsg.style.display = 'block';
+                    this.cubeIcon.style.display = 'block';
+                } else {
+                    this.clearBtn.style.display = 'block';
+                    this.noSolvesMsg.style.display = 'none';
+                    this.cubeIcon.style.display = 'none';
+                    
+                    this.solvesList.innerHTML = '';
+                    const reversedSolves = [...this.solves].reverse();
+                    
+                    reversedSolves.forEach((solve, index) => {
+                        const solveEl = document.createElement('div');
+                        solveEl.className = 'solve-item';
+                        solveEl.innerHTML = `
+                            <div class="solve-info">
+                                <div class="solve-time">${this.formatTime(solve.time)}</div>
+                                <div class="solve-meta">#${this.solves.length - index} • ${solve.timestamp}</div>
+                            </div>
+                            <button class="delete-btn" onclick="timer.deleteSolve(${solve.id})">🗑️</button>
+                        `;
+                        this.solvesList.appendChild(solveEl);
+                    });
+                }
+            }
+
+            deleteSolve(id) {
+                this.solves = this.solves.filter(solve => solve.id !== id);
+                this.updateDisplay();
+            }
+
+            clearAllSolves() {
+                this.solves = [];
+                this.updateDisplay();
+            }
+
+            setupEventListeners() {
+                document.addEventListener('keydown', (e) => {
+                    if (e.code === 'Space' && !this.isRunning) {
+                        e.preventDefault();
+                        this.prepareTimer();
+                    }
+                });
+
+                document.addEventListener('keyup', (e) => {
+                    if (e.code === 'Space') {
+                        e.preventDefault();
+                        
+                        if (this.isRunning) {
+                            this.stopTimer();
+                        } else if (this.isReady) {
+                            this.startTimer();
+                        }
+                    }
+                });
+
+                this.clearBtn.addEventListener('click', () => {
+                    this.clearAllSolves();
+                });
+            }
+        }
+
+        // Initialize timer
+        const timer = new CubingTimer();
+    </script>
+</body>
 </html>

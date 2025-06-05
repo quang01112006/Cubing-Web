@@ -1,40 +1,52 @@
 body {
-  background: linear-gradient(to left,rgb(100, 110, 117),rgb(0, 0, 46));
   color: aliceblue;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   display: flex;
+  min-height: 100vh;
 }
+
 .sidebar {
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
-  width: 20vh;
-  height: 100%; /* Chiều cao full màn */
-  background-color: #0a0505;
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0a0505 100%);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  border-right: 1px solid #333;
   box-sizing: border-box;
+  z-index: 1000;
 }
 
 .sidebar a {
   display: block;
-  /* width: 100%; */
-  color: white;
-  text-align:left;
-  padding: 10px 30px;
-  text-decoration: none;
+  color: #e0e0e0;
+  text-align: left;
+  padding: 15px 25px;
+  text-decoration: none; /* bỏ gạch dưới*/
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 500;
 }
 
 .sidebar a:hover {
-  background-color: #53555a;
-
+  background: linear-gradient(90deg, #53555a, #404040);
+  color: white;
+  padding-left: 30px;
+  border-left: 3px solid #4a90e2;
 }
-.sidebar a:active{
-  background-color:rgb(15, 75, 187);
+
+.sidebar a:active {
+  background: linear-gradient(90deg, rgb(15, 75, 187), rgb(30, 90, 200));
+  color: white;
 }
 
 main {
-  margin-left: 200px; /* Để né sidebar */
+  margin-left: 250px;
   padding: 0;
-  width: calc(100% - 200px);
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  background: #383737;
 }
