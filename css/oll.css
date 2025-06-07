@@ -143,31 +143,3 @@ h1 {
 .introduce p {
   margin: auto 100px;
 }
-
-@media (max-width: 768px) {
-  main {
-    margin-left: 0;
-    width: 100%;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .oll-container {
-    margin: 20px 10px;
-  }
-
-  .oll-image {
-    width: 50px;
-    height: 50px;
-  }
-
-  .oll-name {
-    font-size: 14px;
-  }
-
-  .oll-algorithm {
-    font-size: 12px;
-  }
-}

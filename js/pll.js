@@ -4,7 +4,7 @@ document.querySelectorAll(".pll-item").forEach((item) => {
       e.target.classList.contains("star-icon") ||
       e.target.closest(".star-icon")
     ) {
-      return; // Don't expand when clicking star
+      return; //
     }
 
     this.classList.toggle("expanded");

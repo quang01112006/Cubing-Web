@@ -23,13 +23,14 @@ main {
 }
 
 #time {
-  font-size: 150px;
+  font-size: 10rem;
   font-family: "Major Mono Display", monospace;
   font-weight: bold;
   color: #e2e8ee;
   text-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
   margin: 0;
 }
+
 
 .stat-section {
   width: 320px;
