@@ -142,26 +142,3 @@ h1 {
   letter-spacing: 0.5px;
   text-align: center;
 }
-
-@media (max-width: 768px) {
-  main {
-    margin-left: 0;
-    width: 100%;
-  }
-  .sidebar {
-    display: none;
-  }
-  .pll-container {
-    margin: 20px 10px;
-  }
-  .pll-image {
-    width: 50px;
-    height: 50px;
-  }
-  .pll-name {
-    font-size: 14px;
-  }
-  .pll-algorithm {
-    font-size: 12px;
-  }
-}
