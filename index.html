@@ -2,16 +2,529 @@
 <html>
   <head>
     <title>Home - Rubik Trainer</title>
-    <link rel="stylesheet" href="./css/common.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #0f0f0f;
+        color: #e0e0e0;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 200px;
+        height: 100vh;
+        background: linear-gradient(180deg, #2d2d2d 0%, #1a1a1a 100%);
+        padding: 2rem 0;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 100;
+      }
+
+      .sidebar a {
+        display: block;
+        padding: 1rem 2rem;
+        color: #e0e0e0;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+      }
+
+      .sidebar a:hover {
+        background: rgba(74, 144, 226, 0.1);
+        border-left-color: #4a90e2;
+        color: #4a90e2;
+      }
+
+      main {
+        display: flex;
+        background: #1a1a1a;
+        margin-left: 200px;
+      }
+
+      #timer {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        max-width: calc(100% - 320px);
+        margin-top: 100px;
+      }
+
+      #scramble {
+        text-align: center;
+        font-size: 30px;
+        word-spacing: 10px;
+        margin-bottom: 40px;
+        color: #e0e0e0;
+        font-weight: 500;
+      }
+
+      #time {
+        font-size: 10rem;
+        font-family: "Major Mono Display", monospace;
+        font-weight: bold;
+        color: #e2e8ee;
+        text-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+        margin: 0;
+      }
+
+      .stat-section {
+        width: 320px;
+        background: linear-gradient(180deg, #2d2d2d 0%, #242424 100%);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        border-left: 1px solid #333;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+        height: 100vh;
+        overflow-y: auto;
+      }
+
+      .stat-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #404040;
+      }
+
+      .stat-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: #4a90e2;
+      }
+
+      .clear-btn {
+        background: #e74c3c;
+        color: white;
+        border: none;
+        padding: 0.5rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .clear-btn:hover {
+        background: #c0392b;
+        transform: scale(1.05);
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .stat-item {
+        background: linear-gradient(135deg, #404040, #353535);
+        padding: 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #555;
+        transition: transform 0.2s ease;
+      }
+
+      .stat-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .stat-name {
+        color: #bbb;
+        font-size: 0.85rem;
+        margin-bottom: 0.25rem;
+        font-weight: 500;
+      }
+
+      .stat-value {
+        font-family: "Courier New", monospace;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      .solves-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .solves-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: #4a90e2;
+      }
+
+      .solves-list {
+        flex: 1;
+        max-height: 400px;
+        overflow-y: auto;
+        padding-right: 8px;
+      }
+
+      .solves-list::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .solves-list::-webkit-scrollbar-track {
+        background: #333;
+        border-radius: 3px;
+      }
+
+      .solves-list::-webkit-scrollbar-thumb {
+        background: #555;
+        border-radius: 3px;
+      }
+
+      .solves-list::-webkit-scrollbar-thumb:hover {
+        background: #777;
+      }
+
+      .solve-item {
+        background: linear-gradient(135deg, #404040, #353535);
+        padding: 0.75rem;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+        border: 1px solid #555;
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .solve-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 3px;
+        background: #4a90e2;
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+      }
+
+      .solve-item:hover::before {
+        transform: scaleY(1);
+      }
+
+      .solve-item:hover {
+        transform: translateX(5px);
+        background: linear-gradient(135deg, #4a4a4a, #3a3a3a);
+        box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+      }
+
+      .solve-time {
+        font-family: "Courier New", monospace;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #e0e0e0;
+      }
+
+      .solve-number {
+        font-size: 0.85rem;
+        color: #888;
+        font-weight: 500;
+      }
+
+      .solve-item.pb {
+        border-left: 3px solid #27ae60;
+        background: linear-gradient(135deg, #2d5a3d, #264032);
+      }
+
+      .solve-item.pb .solve-time {
+        color: #2ecc71;
+      }
+
+      .solve-item.worst {
+        border-left: 3px solid #e74c3c;
+        background: linear-gradient(135deg, #5a2d2d, #402626);
+      }
+
+      .solve-item.worst .solve-time {
+        color: #e74c3c;
+      }
+
+      .no-solves {
+        color: #666;
+        font-style: italic;
+        text-align: center;
+        padding: 2rem;
+        background: linear-gradient(135deg, #333, #2a2a2a);
+        border-radius: 8px;
+        border: 1px dashed #555;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .solve-item.new {
+        animation: slideIn 0.5s ease;
+      }
+    </style>
   </head>
   <body>
     <nav class="sidebar">
-      <a href="index.html">Home</a>
-      <a href="./html/timer.html">Timer</a>
-      <a href="./html/f2l.html">F2L</a>
-      <a href="./html/oll.html">OLL</a>
-      <a href="./html/pll.html">PLL</a>
+      <a href="../index.html">Home</a>
+      <a href="./timer.html">Timer</a>
+      <a href="./f2l.html">F2L</a>
+      <a href="./oll.html">OLL</a>
+      <a href="./pll.html">PLL</a>
     </nav>
-    <main></main>
+    <main>
+      <div id="timer">
+        <div id="scramble"></div>
+        <div id="time">00:00</div>
+      </div>
+
+      <div class="stat-section">
+        <div class="stat-header">
+          <div class="stat-title">Statistics</div>
+          <button class="clear-btn" id="clearBtn" style="display: none">
+            🗑️
+          </button>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div>
+              <div class="stat-name">Pb</div>
+              <div class="stat-value" id="pb">-</div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div>
+              <div class="stat-name">Worst</div>
+              <div class="stat-value" id="worst">-</div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div>
+              <div class="stat-name">Ao5</div>
+              <div class="stat-value" id="ao5">-</div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div>
+              <div class="stat-name">Mean</div>
+              <div class="stat-value" id="mean">-</div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div>
+              <div class="stat-name">Ao12</div>
+              <div class="stat-value" id="ao12">-</div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div>
+              <div class="stat-name">Số lượt giải</div>
+              <div class="stat-value" id="solveCount">-</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="solves-section">
+          <div class="solves-title">Recent Solves</div>
+          <div class="solves-list">
+            <div class="no-solves">Chưa có lượt giải nào.</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const moves = ["U", "D", "L", "R", "F", "B"];
+      const modifiers = ["", "'", "2"];
+      
+      function generateScramble() {
+        let scramble = [];
+        let lastMove = null;
+        while (scramble.length < 22) {
+          let move = moves[Math.floor(Math.random() * 6)];
+          if (move === lastMove) continue;
+          let modifier = modifiers[Math.floor(Math.random() * 3)];
+          scramble.push(move + modifier);
+          lastMove = move;
+        }
+        return scramble.join(" ");
+      }
+
+      document.getElementById("scramble").innerHTML = generateScramble();
+      
+      let startTime = 0;
+      let timePassed = 0;
+      let isRunning = false;
+      let timerId = null;
+      let solves = [];
+
+      function updateTimer() {
+        let now = Date.now();
+        timePassed = (now - startTime) / 1000;
+        document.querySelector("#time").innerHTML = timePassed.toFixed(2);
+      }
+
+      function startTimer() {
+        startTime = Date.now();
+        timerId = setInterval(updateTimer, 10);
+        isRunning = true;
+      }
+
+      function stopTimer() {
+        clearInterval(timerId);
+        const currentTime = Number(timePassed.toFixed(2));
+        solves.push(currentTime);
+        timerId = null;
+        isRunning = false;
+        
+        updateSolvesList();
+        document.getElementById("scramble").innerHTML = generateScramble();
+        updateStats();
+        
+        // Show clear button if there are solves
+        if (solves.length > 0) {
+          document.getElementById("clearBtn").style.display = "block";
+        }
+      }
+
+      function updateSolvesList() {
+        const solvesList = document.querySelector(".solves-list");
+        
+        if (solves.length === 0) {
+          solvesList.innerHTML = '<div class="no-solves">Chưa có lượt giải nào.</div>';
+          return;
+        }
+
+        const pb = Math.min(...solves);
+        const worst = Math.max(...solves);
+        
+        let html = '';
+        
+        // Show recent solves (last 10) in reverse order
+        const recentSolves = solves.slice(-10).reverse();
+        
+        recentSolves.forEach((time, index) => {
+          const solveNumber = solves.length - index;
+          let className = 'solve-item';
+          
+          if (time === pb) className += ' pb';
+          if (time === worst) className += ' worst';
+          if (index === 0) className += ' new'; // Latest solve
+          
+          html += `
+            <div class="${className}">
+              <div class="solve-number">#${solveNumber}</div>
+              <div class="solve-time">${time}s</div>
+            </div>
+          `;
+        });
+        
+        solvesList.innerHTML = html;
+      }
+
+      function updateStats() {
+        document.getElementById("pb").innerHTML = showPb();
+        document.getElementById("worst").innerHTML = showWorst();
+        document.getElementById("ao5").innerHTML = showAo5();
+        document.getElementById("mean").innerHTML = showMean();
+        document.getElementById("ao12").innerHTML = showAo12();
+        document.getElementById("solveCount").innerHTML = solves.length;
+      }
+
+      window.addEventListener("keyup", function (event) {
+        if (event.code === "Space") {
+          event.preventDefault();
+          if (!isRunning) startTimer();
+          else stopTimer();
+        }
+      });
+
+      // Clear button functionality
+      document.getElementById("clearBtn").addEventListener("click", function() {
+        if (confirm("Bạn có chắc chắn muốn xóa tất cả lượt giải?")) {
+          solves = [];
+          updateSolvesList();
+          updateStats();
+          this.style.display = "none";
+        }
+      });
+
+      function showPb() {
+        if (solves.length === 0) return "-";
+        const pb = Math.min(...solves);
+        return pb.toFixed(2);
+      }
+
+      function showWorst() {
+        if (solves.length === 0) return "-";
+        const worst = Math.max(...solves);
+        return worst.toFixed(2);
+      }
+
+      function showAo5() {
+        if (solves.length < 5) return "-";
+
+        let middleSolves = solves
+          .slice(-5)
+          .sort((a, b) => a - b)
+          .slice(1, 4);
+        let ao3 =
+          middleSolves.reduce((sum, time) => sum + time, 0) / middleSolves.length;
+        return ao3.toFixed(2);
+      }
+
+      function showMean() {
+        if (solves.length < 5) return "-";
+        let last5solves = solves.slice(-5);
+        let ao5 =
+          last5solves.reduce((sum, time) => sum + time, 0) / last5solves.length;
+        return ao5.toFixed(2);
+      }
+
+      function showAo12() {
+        if (solves.length < 12) return "-";
+
+        let middleSolves = solves
+          .slice(-12)
+          .sort((a, b) => a - b)
+          .slice(1, 11);
+        let ao10 =
+          middleSolves.reduce((sum, time) => sum + time, 0) / middleSolves.length;
+        return ao10.toFixed(2);
+      }
+    </script>
   </body>
 </html>
