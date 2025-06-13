@@ -3,6 +3,7 @@ main {
   background: #1a1a1a;
 }
 
+/*Phần timer*/
 #timer {
   flex: 1;
   display: flex;
@@ -31,7 +32,7 @@ main {
   margin: 0;
 }
 
-
+/*Phần Stats*/
 .stat-section {
   width: 320px;
   background: linear-gradient(180deg, #2d2d2d 0%, #242424 100%);
@@ -78,10 +79,6 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.stat-item.full-width {
-  grid-column: span 2;
-}
-
 .stat-name {
   color: #bbb;
   font-size: 0.85rem;
@@ -96,8 +93,11 @@ main {
   font-weight: bold;
 }
 
+/*Phần solves*/
 .solves-section {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .solves-title {
@@ -108,49 +108,39 @@ main {
 }
 
 .solves-list {
-  max-height: 400px;
+  flex: 1;
+  max-height: 480px;
   overflow-y: auto;
-  padding-right: 5px;
-}
-
-.solves-list::-webkit-scrollbar {
-  width: 6px;
-}
-
-.solves-list::-webkit-scrollbar-track {
-  background: #333;
-  border-radius: 3px;
-}
-
-.solves-list::-webkit-scrollbar-thumb {
-  background: #666;
-  border-radius: 3px;
-}
-
-.solves-list::-webkit-scrollbar-thumb:hover {
-  background: #888;
 }
 
 .solve-item {
+  display: flex;
+  justify-content: space-between;
   background: linear-gradient(135deg, #404040, #353535);
   padding: 0.75rem;
   border-radius: 8px;
   margin-bottom: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid #555;
-  transition: all 0.2s ease;
+  border: 10px solid #555;
 }
 
 .solve-item:hover {
-  transform: translateX(5px);
   border-left: 3px solid #4a90e2;
 }
+.solve-time {
+  font-family: "Courier New", monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #e0e0e0;
+}
+.solve-index {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 500;
+}
 
-.no-solves-msg {
+.no-solves {
   color: #666;
   font-style: italic;
   text-align: center;
-  padding: 2rem;
+  width: 10rem;
 }

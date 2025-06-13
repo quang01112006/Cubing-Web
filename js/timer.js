@@ -1,4 +1,4 @@
-const moves = ["U", "D", "L", "R", "F", "B"];  
+const moves = ["U", "D", "L", "R", "F", "B"];
 const modifiers = ["", "'", "2"];
 function generateScramble() {
   let scramble = [];
@@ -16,7 +16,7 @@ document.getElementById("scramble").innerHTML = generateScramble();
 let startTime = 0;
 let timePassed = 0;
 let isRunning = false;
-let timerId = null; 
+let timerId = null;
 let solves = [];
 
 function updateTimer() {
@@ -36,8 +36,14 @@ function stopTimer() {
   solves.push(Number(timePassed.toFixed(2)));
   timerId = null;
   isRunning = false;
-  document.querySelector(".solves-list").innerHTML = solves.join("<br>");
+  updateSolvesList();
   document.getElementById("scramble").innerHTML = generateScramble();
+  document.getElementById("pb").innerHTML = showPb();
+  document.getElementById("worst").innerHTML = showWorst();
+  document.getElementById("ao5").innerHTML = showAo5();
+  document.getElementById("mean").innerHTML = showMean();
+  document.getElementById("ao12").innerHTML = showAo12();
+  document.getElementById("total-solves").innerHTML = showTotalSolves();
 }
 
 window.addEventListener("keyup", function (event) {
@@ -47,3 +53,59 @@ window.addEventListener("keyup", function (event) {
     else stopTimer();
   }
 });
+
+function showPb() {
+  const pb = Math.min(...solves);
+  return pb;
+}
+function showWorst() {
+  const pb = Math.max(...solves);
+  return pb;
+}
+function showAo5() {
+  if (solves.length < 5) return "-";
+
+  let middleSolves = solves
+    .slice(-5)
+    .sort((a, b) => a - b)
+    .slice(1, 4);
+  let ao3 =
+    middleSolves.reduce((sum, time) => sum + time, 0) / middleSolves.length;
+  return ao3.toFixed(2);
+}
+
+function showMean() {
+  if (solves.length < 5) return "-";
+  let last5solves = solves.slice(-5);
+  let ao5 =
+    last5solves.reduce((sum, time) => sum + time, 0) / last5solves.length;
+  return ao5.toFixed(2);
+}
+function showAo12() {
+  if (solves.length < 12) return "-";
+
+  let middleSolves = solves
+    .slice(-12)
+    .sort((a, b) => a - b)
+    .slice(1, 11);
+  let ao10 =
+    middleSolves.reduce((sum, time) => sum + time, 0) / middleSolves.length;
+  return ao10.toFixed(2);
+}
+function showTotalSolves() {
+  return solves.length;
+}
+function updateSolvesList() {
+  let html = "";
+  solves
+    .slice()
+    .reverse()
+    .forEach((time, index) => {
+      html += ` 
+      <div class="solve-item">
+      <div class="solve-index">#${index + 1}</div>
+      <div class="solve-time">${time}</div>
+      </div>`;
+    });
+  document.querySelector(".solves-list").innerHTML = html;
+}
