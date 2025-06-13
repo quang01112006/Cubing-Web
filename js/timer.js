@@ -46,7 +46,7 @@ function stopTimer() {
   document.getElementById("total-solves").innerHTML = showTotalSolves();
 }
 
-window.addEventListener("keyup", function (event) {
+document.addEventListener("keyup", function (event) {
   if (event.code === "Space") {
     event.preventDefault();
     if (!isRunning) startTimer();

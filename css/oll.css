@@ -74,7 +74,12 @@ h1 {
   letter-spacing: 0.5px;
   line-height: 1.4;
 }
-
+.oll-item-content{
+  max-height: 0;
+}
+.oll-item-content.oll-item.expanded{
+  max-height: 200px;
+}
 .expand-icon {
   width: 12px;
   height: 12px;
