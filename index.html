@@ -1,530 +1,67 @@
-<!DOCTYPE html>
+!<!DOCTYPE html>
 <html>
   <head>
     <title>Home - Rubik Trainer</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: Arial, sans-serif;
-        background: #0f0f0f;
-        color: #e0e0e0;
-        min-height: 100vh;
-        overflow-x: hidden;
-      }
-
-      .sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 200px;
-        height: 100vh;
-        background: linear-gradient(180deg, #2d2d2d 0%, #1a1a1a 100%);
-        padding: 2rem 0;
-        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
-        z-index: 100;
-      }
-
-      .sidebar a {
-        display: block;
-        padding: 1rem 2rem;
-        color: #e0e0e0;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        border-left: 3px solid transparent;
-      }
-
-      .sidebar a:hover {
-        background: rgba(74, 144, 226, 0.1);
-        border-left-color: #4a90e2;
-        color: #4a90e2;
-      }
-
-      main {
-        display: flex;
-        background: #1a1a1a;
-        margin-left: 200px;
-      }
-
-      #timer {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        max-width: calc(100% - 320px);
-        margin-top: 100px;
-      }
-
-      #scramble {
-        text-align: center;
-        font-size: 30px;
-        word-spacing: 10px;
-        margin-bottom: 40px;
-        color: #e0e0e0;
-        font-weight: 500;
-      }
-
-      #time {
-        font-size: 10rem;
-        font-family: "Major Mono Display", monospace;
-        font-weight: bold;
-        color: #e2e8ee;
-        text-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
-        margin: 0;
-      }
-
-      .stat-section {
-        width: 320px;
-        background: linear-gradient(180deg, #2d2d2d 0%, #242424 100%);
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        border-left: 1px solid #333;
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-        height: 100vh;
-        overflow-y: auto;
-      }
-
-      .stat-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1.5rem;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid #404040;
-      }
-
-      .stat-title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 0.75rem;
-        color: #4a90e2;
-      }
-
-      .clear-btn {
-        background: #e74c3c;
-        color: white;
-        border: none;
-        padding: 0.5rem;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-      }
-
-      .clear-btn:hover {
-        background: #c0392b;
-        transform: scale(1.05);
-      }
-
-      .stat-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .stat-item {
-        background: linear-gradient(135deg, #404040, #353535);
-        padding: 0.75rem;
-        border-radius: 8px;
-        border: 1px solid #555;
-        transition: transform 0.2s ease;
-      }
-
-      .stat-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      }
-
-      .stat-name {
-        color: #bbb;
-        font-size: 0.85rem;
-        margin-bottom: 0.25rem;
-        font-weight: 500;
-      }
-
-      .stat-value {
-        font-family: "Courier New", monospace;
-        color: white;
-        font-size: 1rem;
-        font-weight: bold;
-      }
-
-      .solves-section {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .solves-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 0.75rem;
-        color: #4a90e2;
-      }
-
-      .solves-list {
-        flex: 1;
-        max-height: 400px;
-        overflow-y: auto;
-        padding-right: 8px;
-      }
-
-      .solves-list::-webkit-scrollbar {
-        width: 6px;
-      }
-
-      .solves-list::-webkit-scrollbar-track {
-        background: #333;
-        border-radius: 3px;
-      }
-
-      .solves-list::-webkit-scrollbar-thumb {
-        background: #555;
-        border-radius: 3px;
-      }
-
-      .solves-list::-webkit-scrollbar-thumb:hover {
-        background: #777;
-      }
-
-      .solve-item {
-        background: linear-gradient(135deg, #404040, #353535);
-        padding: 0.75rem;
-        border-radius: 8px;
-        margin-bottom: 0.5rem;
-        border: 1px solid #555;
-        transition: all 0.3s ease;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .solve-item::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 3px;
-        background: #4a90e2;
-        transform: scaleY(0);
-        transition: transform 0.3s ease;
-      }
-
-      .solve-item:hover::before {
-        transform: scaleY(1);
-      }
-
-      .solve-item:hover {
-        transform: translateX(5px);
-        background: linear-gradient(135deg, #4a4a4a, #3a3a3a);
-        box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
-      }
-
-      .solve-time {
-        font-family: "Courier New", monospace;
-        font-size: 1.1rem;
-        font-weight: bold;
-        color: #e0e0e0;
-      }
-
-      .solve-number {
-        font-size: 0.85rem;
-        color: #888;
-        font-weight: 500;
-      }
-
-      .solve-item.pb {
-        border-left: 3px solid #27ae60;
-        background: linear-gradient(135deg, #2d5a3d, #264032);
-      }
-
-      .solve-item.pb .solve-time {
-        color: #2ecc71;
-      }
-
-      .solve-item.worst {
-        border-left: 3px solid #e74c3c;
-        background: linear-gradient(135deg, #5a2d2d, #402626);
-      }
-
-      .solve-item.worst .solve-time {
-        color: #e74c3c;
-      }
-
-      .no-solves {
-        color: #666;
-        font-style: italic;
-        text-align: center;
-        padding: 2rem;
-        background: linear-gradient(135deg, #333, #2a2a2a);
-        border-radius: 8px;
-        border: 1px dashed #555;
-      }
-
-      @keyframes slideIn {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .solve-item.new {
-        animation: slideIn 0.5s ease;
-      }
-    </style>
+    <link rel="stylesheet" href="../css/common.css" />
+    
   </head>
   <body>
-    <nav class="sidebar">
-      <a href="../index.html">Home</a>
-      <a href="./timer.html">Timer</a>
-      <a href="./f2l.html">F2L</a>
-      <a href="./oll.html">OLL</a>
-      <a href="./pll.html">PLL</a>
+   <nav class="sidebar">
+      <div class="brand">
+        <img src="../pic/c.jpg" alt="site-icon" />
+        <div class="site-name">RubikArt</div>
+      </div>
+      <a href="../index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path
+            d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+          />
+        </svg>
+        Home</a
+      >
+      <a href="./html/timer.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path
+            d="M176 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l16 0 0 34.4C92.3 113.8 16 200 16 304c0 114.9 93.1 208 208 208s208-93.1 208-208c0-41.8-12.3-80.7-33.5-113.2l24.1-24.1c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L355.7 143c-28.1-23-62.2-38.8-99.7-44.6L256 64l16 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L176 0zM288 204c28.7 0 52 23.3 52 52l0 96c0 28.7-23.3 52-52 52s-52-23.3-52-52l0-96c0-28.7 23.3-52 52-52zm-12 52l0 96c0 6.6 5.4 12 12 12s12-5.4 12-12l0-96c0-6.6-5.4-12-12-12s-12 5.4-12 12zM159.5 244c-5.4 0-10.2 3.5-11.9 8.6l-.6 1.7c-3.5 10.5-14.8 16.1-25.3 12.6s-16.1-14.8-12.6-25.3l.6-1.7c7.2-21.5 27.2-35.9 49.8-35.9c29 0 52.5 23.5 52.5 52.5l0 2.2c0 13.4-4.9 26.4-13.8 36.4l-39 43.9c-6.2 7-10 15.7-10.9 24.9l43.8 0c11 0 20 9 20 20s-9 20-20 20l-64 0c-11 0-20-9-20-20l0-15.7c0-20.6 7.5-40.4 21.2-55.8l39-43.9c2.4-2.7 3.7-6.2 3.7-9.8l0-2.2c0-6.9-5.6-12.5-12.5-12.5z"
+          />
+        </svg>
+        Timer
+      </a>
+      <a href="./html/f2l.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M234.5 5.7c13.9-5 29.1-5 43.1 0l192 68.6C495 83.4 512 107.5 512 134.6l0 242.9c0 27-17 51.2-42.5 60.3l-192 68.6c-13.9 5-29.1 5-43.1 0l-192-68.6C17 428.6 0 404.5 0 377.4L0 134.6c0-27 17-51.2 42.5-60.3l192-68.6zM256 66L82.3 128 256 190l173.7-62L256 66zm32 368.6l160-57.1 0-188L288 246.6l0 188z"
+          />
+        </svg>
+        F2L</a
+      >
+      <a href="./html/oll.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M234.5 5.7c13.9-5 29.1-5 43.1 0l192 68.6C495 83.4 512 107.5 512 134.6l0 242.9c0 27-17 51.2-42.5 60.3l-192 68.6c-13.9 5-29.1 5-43.1 0l-192-68.6C17 428.6 0 404.5 0 377.4L0 134.6c0-27 17-51.2 42.5-60.3l192-68.6zM256 66L82.3 128 256 190l173.7-62L256 66zm32 368.6l160-57.1 0-188L288 246.6l0 188z"
+          />
+        </svg>
+        OLL</a
+      >
+      <a href="./html/pll.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M234.5 5.7c13.9-5 29.1-5 43.1 0l192 68.6C495 83.4 512 107.5 512 134.6l0 242.9c0 27-17 51.2-42.5 60.3l-192 68.6c-13.9 5-29.1 5-43.1 0l-192-68.6C17 428.6 0 404.5 0 377.4L0 134.6c0-27 17-51.2 42.5-60.3l192-68.6zM256 66L82.3 128 256 190l173.7-62L256 66zm32 368.6l160-57.1 0-188L288 246.6l0 188z"
+          />
+        </svg>
+        PLL</a
+      >
+      <a href="./html/settings.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"
+          />
+        </svg>
+        Settings</a
+      >
     </nav>
     <main>
-      <div id="timer">
-        <div id="scramble"></div>
-        <div id="time">00:00</div>
-      </div>
-
-      <div class="stat-section">
-        <div class="stat-header">
-          <div class="stat-title">Statistics</div>
-          <button class="clear-btn" id="clearBtn" style="display: none">
-            🗑️
-          </button>
-        </div>
-
-        <div class="stat-grid">
-          <div class="stat-item">
-            <div>
-              <div class="stat-name">Pb</div>
-              <div class="stat-value" id="pb">-</div>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div>
-              <div class="stat-name">Worst</div>
-              <div class="stat-value" id="worst">-</div>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div>
-              <div class="stat-name">Ao5</div>
-              <div class="stat-value" id="ao5">-</div>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div>
-              <div class="stat-name">Mean</div>
-              <div class="stat-value" id="mean">-</div>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div>
-              <div class="stat-name">Ao12</div>
-              <div class="stat-value" id="ao12">-</div>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div>
-              <div class="stat-name">Số lượt giải</div>
-              <div class="stat-value" id="solveCount">-</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="solves-section">
-          <div class="solves-title">Recent Solves</div>
-          <div class="solves-list">
-            <div class="no-solves">Chưa có lượt giải nào.</div>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <script>
-      const moves = ["U", "D", "L", "R", "F", "B"];
-      const modifiers = ["", "'", "2"];
-      
-      function generateScramble() {
-        let scramble = [];
-        let lastMove = null;
-        while (scramble.length < 22) {
-          let move = moves[Math.floor(Math.random() * 6)];
-          if (move === lastMove) continue;
-          let modifier = modifiers[Math.floor(Math.random() * 3)];
-          scramble.push(move + modifier);
-          lastMove = move;
-        }
-        return scramble.join(" ");
-      }
-
-      document.getElementById("scramble").innerHTML = generateScramble();
-      
-      let startTime = 0;
-      let timePassed = 0;
-      let isRunning = false;
-      let timerId = null;
-      let solves = [];
-
-      function updateTimer() {
-        let now = Date.now();
-        timePassed = (now - startTime) / 1000;
-        document.querySelector("#time").innerHTML = timePassed.toFixed(2);
-      }
-
-      function startTimer() {
-        startTime = Date.now();
-        timerId = setInterval(updateTimer, 10);
-        isRunning = true;
-      }
-
-      function stopTimer() {
-        clearInterval(timerId);
-        const currentTime = Number(timePassed.toFixed(2));
-        solves.push(currentTime);
-        timerId = null;
-        isRunning = false;
-        
-        updateSolvesList();
-        document.getElementById("scramble").innerHTML = generateScramble();
-        updateStats();
-        
-        // Show clear button if there are solves
-        if (solves.length > 0) {
-          document.getElementById("clearBtn").style.display = "block";
-        }
-      }
-
-      function updateSolvesList() {
-        const solvesList = document.querySelector(".solves-list");
-        
-        if (solves.length === 0) {
-          solvesList.innerHTML = '<div class="no-solves">Chưa có lượt giải nào.</div>';
-          return;
-        }
-
-        const pb = Math.min(...solves);
-        const worst = Math.max(...solves);
-        
-        let html = '';
-        
-        // Show recent solves (last 10) in reverse order
-        const recentSolves = solves.slice(-10).reverse();
-        
-        recentSolves.forEach((time, index) => {
-          const solveNumber = solves.length - index;
-          let className = 'solve-item';
-          
-          if (time === pb) className += ' pb';
-          if (time === worst) className += ' worst';
-          if (index === 0) className += ' new'; // Latest solve
-          
-          html += `
-            <div class="${className}">
-              <div class="solve-number">#${solveNumber}</div>
-              <div class="solve-time">${time}s</div>
-            </div>
-          `;
-        });
-        
-        solvesList.innerHTML = html;
-      }
-
-      function updateStats() {
-        document.getElementById("pb").innerHTML = showPb();
-        document.getElementById("worst").innerHTML = showWorst();
-        document.getElementById("ao5").innerHTML = showAo5();
-        document.getElementById("mean").innerHTML = showMean();
-        document.getElementById("ao12").innerHTML = showAo12();
-        document.getElementById("solveCount").innerHTML = solves.length;
-      }
-
-      window.addEventListener("keyup", function (event) {
-        if (event.code === "Space") {
-          event.preventDefault();
-          if (!isRunning) startTimer();
-          else stopTimer();
-        }
-      });
-
-      // Clear button functionality
-      document.getElementById("clearBtn").addEventListener("click", function() {
-        if (confirm("Bạn có chắc chắn muốn xóa tất cả lượt giải?")) {
-          solves = [];
-          updateSolvesList();
-          updateStats();
-          this.style.display = "none";
-        }
-      });
-
-      function showPb() {
-        if (solves.length === 0) return "-";
-        const pb = Math.min(...solves);
-        return pb.toFixed(2);
-      }
-
-      function showWorst() {
-        if (solves.length === 0) return "-";
-        const worst = Math.max(...solves);
-        return worst.toFixed(2);
-      }
-
-      function showAo5() {
-        if (solves.length < 5) return "-";
-
-        let middleSolves = solves
-          .slice(-5)
-          .sort((a, b) => a - b)
-          .slice(1, 4);
-        let ao3 =
-          middleSolves.reduce((sum, time) => sum + time, 0) / middleSolves.length;
-        return ao3.toFixed(2);
-      }
-
-      function showMean() {
-        if (solves.length < 5) return "-";
-        let last5solves = solves.slice(-5);
-        let ao5 =
-          last5solves.reduce((sum, time) => sum + time, 0) / last5solves.length;
-        return ao5.toFixed(2);
-      }
-
-      function showAo12() {
-        if (solves.length < 12) return "-";
-
-        let middleSolves = solves
-          .slice(-12)
-          .sort((a, b) => a - b)
-          .slice(1, 11);
-        let ao10 =
-          middleSolves.reduce((sum, time) => sum + time, 0) / middleSolves.length;
-        return ao10.toFixed(2);
-      }
-    </script>
+    
+     
   </body>
 </html>
