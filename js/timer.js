@@ -45,10 +45,14 @@ function stopTimer() {
   document.getElementById("ao12").innerHTML = showAo12();
   document.getElementById("total-solves").innerHTML = showTotalSolves();
 }
+document.addEventListener("keydown", function (event) {
+  document.getElementById("time").style.color = "aqua";
+});
 
 document.addEventListener("keyup", function (event) {
   if (event.code === "Space") {
     event.preventDefault();
+    document.getElementById("time").style.color = "#e2e8ee";
     if (!isRunning) startTimer();
     else stopTimer();
   }
@@ -75,11 +79,10 @@ function showAo5() {
 }
 
 function showMean() {
-  if (solves.length < 5) return "-";
-  let last5solves = solves.slice(-5);
-  let ao5 =
-    last5solves.reduce((sum, time) => sum + time, 0) / last5solves.length;
-  return ao5.toFixed(2);
+  let recentSolves = solves.slice();
+  let mean =
+    recentSolves.reduce((sum, time) => sum + time, 0) / recentSolves.length;
+  return mean.toFixed(2);
 }
 function showAo12() {
   if (solves.length < 12) return "-";
@@ -103,9 +106,34 @@ function updateSolvesList() {
     .forEach((time, index) => {
       html += ` 
       <div class="solve-item">
-      <div class="solve-index">#${index + 1}</div>
+      <div class="solve-index">#${solves.length - index}</div>
       <div class="solve-time">${time}</div>
       </div>`;
     });
   document.querySelector(".solves-list").innerHTML = html;
 }
+
+document.getElementById("bg-upload").addEventListener("change", function (e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function (event) {
+    const main = document.querySelector("main"); // <- fix chỗ này
+    main.style.backgroundImage = `url(${event.target.result})`;
+    main.style.backgroundSize = "cover";
+    main.style.backgroundPosition = "center";
+  };
+  reader.readAsDataURL(file);
+});
+
+document.getElementById("color-picker").addEventListener("input", function (e) {
+  const color = e.target.value;
+
+  // Áp dụng màu cho timer và scramble
+  document.getElementById("time").style.color = color;
+  document.getElementById("scramble").style.color = color;
+
+  // Lưu vào localStorage
+  localStorage.setItem("textColor", color);
+});

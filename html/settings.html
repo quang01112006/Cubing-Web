@@ -3,7 +3,7 @@
   <head>
     <title>Home - Rubik Trainer</title>
     <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/f2l.css" />
+    <link rel="stylesheet" href="../css/settings.css" />
   </head>
   <body>
     <nav class="sidebar">
@@ -61,7 +61,43 @@
       >
     </nav>
     <main>
-      <h1>Thuật ngữ rubik</h1>
-     
+      <h1>Settings</h1>
+      <div class="settings-container">
+        <div class="setting-item">
+          <div class="setting-name">
+            <p>Timer background</p>
+            <p class="details">
+              Thay đổi hình nền của timer theo sở thích của bạn.
+            </p>
+          </div>
+          <div class="setting-btn">
+            <input type="file" id="bg-upload" accept="image/*" />
+            <button id="reset-bg-btn">Reset</button>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-name">
+            <p>Timer color</p>
+            <p class="details">Đổi màu đồng hồ của bạn.</p>
+          </div>
+          <div class="setting-btn">
+            <input type="color" />
+            <button id="reset-timer-color-btn">Reset</button>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-name">
+            <p>Scramble color</p>
+            <p class="details">Đổi màu scramble của bạn.</p>
+          </div>
+          <div class="setting-btn">
+            <input type="color" />
+            <button id="reset-scramble-color-btn">Reset</button>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

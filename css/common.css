@@ -5,6 +5,29 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   min-height: 100vh;
+  background-color: #1a1a1a;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #9e9393;
+  color: #1a1a1a;
+  padding: 20px;
+  gap: 10px;
+}
+.brand img {
+  width: 50px;
+}
+.site-name {
+  font-size: 30px;
+  font-weight: 900;
+  font-family: sans-serif;
+}
+a svg {
+  width: 20px;
+  padding: 10px;
+  fill: aliceblue;
 }
 
 .sidebar {
@@ -21,9 +44,9 @@ body {
 }
 
 .sidebar a {
-  display: block;
+  display: flex;
   color: #e0e0e0;
-  text-align: left;
+  align-items: center;
   padding: 15px 25px;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -33,7 +56,6 @@ body {
 
 .sidebar a:hover {
   background: linear-gradient(90deg, #53555a, #404040);
-  color: white;
   padding-left: 30px;
   border-left: 3px solid #4a90e2;
 }

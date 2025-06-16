@@ -1,0 +1,38 @@
+main {
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+}
+h1 {
+  font-size: 40px;
+  width: 160px;
+  text-align: center;
+  margin: 10px auto;
+  border-bottom: 2px aqua solid;
+}
+
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+
+.setting-item {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  gap: 40px;
+
+  border-bottom: #5f5959 solid;
+}
+.setting-name {
+  width: 400px;
+}
+.details {
+  color: #666;
+  font-size: 20px;
+  font-style: italic;
+  width: 400px;
+}
