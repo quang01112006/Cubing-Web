@@ -1,15 +1,20 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Home - Rubik Trainer</title>
+    <title>Home</title>
+    <link rel="shortcut icon" href=" pic/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/common.css" />
-    
+    <link rel="stylesheet" href="../css/index.css" />
+
+    >
   </head>
   <body>
-   <nav class="sidebar">
+    <nav class="sidebar">
       <div class="brand">
-        <img src="../pic/c.jpg" alt="site-icon" />
-        <div class="site-name">RubikArt</div>
+        <img src="../pic/logo.png" alt="site-icon" />
+        <div class="site-name">
+          <span class="rubik">Rubik</span><span class="art">Art</span>
+        </div>
       </div>
       <a href="../index.html">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -51,6 +56,14 @@
         </svg>
         PLL</a
       >
+      <a href="./html/explore.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+          />
+        </svg>
+        Explore</a
+      >
       <a href="./html/settings.html">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path
@@ -61,7 +74,94 @@
       >
     </nav>
     <main>
-    
-     
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="logo">
+            <img src="../pic/logo.png" class="img-logo" />
+            <h1 class="hero-title">
+              <span class="rubik">Rubik</span><span class="art">Art</span>
+            </h1>
+          </div>
+          <p class="hero-subtitle">The art of solving cubes.</p>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2 class="section-title">Rubik's Cube là gì?</h2>
+
+        <div class="intro-grid">
+          <div class="intro-card">
+            <div class="card-icon">🎯</div>
+            <h3 class="card-title">Khối Rubik 3x3x3</h3>
+            <p class="card-description">
+              Rubik's Cube là một trò chơi ghép hình 3D nổi tiếng được phát minh
+              bởi Ernő Rubik năm 1974. Với 6 mặt và 6 màu khác nhau, mục tiêu là
+              sắp xếp lại để mỗi mặt có cùng một màu.
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <div class="card-icon">🧠</div>
+            <h3 class="card-title">Thử thách trí tuệ</h3>
+            <p class="card-description">
+              Với hơn 43 tỷ tỷ cách sắp xếp khác nhau, Rubik's Cube là một thử
+              thách tuyệt vời cho trí tuệ, giúp phát triển tư duy logic, khả
+              năng ghi nhớ và kiên nhẫn.
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">Speedcubing</h3>
+            <p class="card-description">
+              Speedcubing là môn thể thao trí tuệ về việc giải Rubik's Cube
+              nhanh nhất có thể. Kỷ lục thế giới hiện tại chỉ 3.05 giây!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2 class="section-title">Phương Pháp CFOP</h2>
+
+        <div class="intro-grid">
+          <div class="intro-card">
+            <img src="../pic/cross.svg" />
+            <h3 class="card-title">Cross</h3>
+            <p class="card-description">
+              Bước đầu tiên là tạo một dấu cộng ở mặt dưới. Phần này không có
+              công thức nào cụ thể, chỉ có thể dựa vào
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <img src="../pic/f2l.png" />
+            <h3 class="card-title">F2L (First Two Layers)</h3>
+            <p class="card-description">
+              Hoàn thành 2 tầng đầu tiên bằng cách ghép các cặp góc-cạnh lại với
+              nhau. Có 41 trường hợp F2L cơ bản cần học.
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">OLL (Orient Last Layer)</h3>
+            <p class="card-description">
+              Định hướng tầng cuối để có mặt trên cùng đúng màu. Có 57 trường
+              hợp OLL khác nhau.
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <div class="card-icon">🔄</div>
+            <h3 class="card-title">PLL (Permute Last Layer)</h3>
+            <p class="card-description">
+              Hoán vị tầng cuối để hoàn thành cube. Gồm 21 trường hợp PLL cần
+              thành thạo.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

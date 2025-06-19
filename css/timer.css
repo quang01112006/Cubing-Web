@@ -1,6 +1,6 @@
 main {
   display: flex;
-  background: #1a1a1a;
+  background: linear-gradient(180deg, #1a1a1a 0%, #1c2241 100%);
 }
 
 /*Phần timer*/
@@ -12,9 +12,10 @@ main {
   padding: 20px;
   max-width: calc(100% - 320px);
   margin-top: 100px;
+  position: relative;
 }
 #timer-instruction {
-  color: #316bc2;
+  color: #00bfff;
   font-style: italic;
   text-align: center;
   width: 20rem;
@@ -40,8 +41,31 @@ main {
   text-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
   margin: 0;
 }
+#scramble-preview {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 
 /*Phần Stats*/
+.clear-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.clear-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: #0066ff;
+  transition: transform 0.2s ease;
+}
+
+.clear-btn:hover svg {
+  transform: scale(1.2);
+  fill: #c0392b;
+}
+
 .stat-section {
   width: 320px;
   background: rgba(0, 0, 0, 0.3);
@@ -65,7 +89,7 @@ main {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: #4a90e2;
+  color: #00bfff;
 }
 
 .stat-grid {
@@ -113,13 +137,16 @@ main {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: #4a90e2;
+  color: #00bfff;
 }
 
 .solves-list {
   flex: 1;
   max-height: 480px;
   overflow-y: auto;
+}
+.solves-list::-webkit-scrollbar {
+  display: none;
 }
 
 .solve-item {
@@ -129,7 +156,6 @@ main {
   padding: 0.75rem;
   border-radius: 8px;
   margin-bottom: 0.5rem;
-  border: 5px solid #555555;
 }
 
 .solve-item:hover {
@@ -143,7 +169,7 @@ main {
 }
 .solve-index {
   font-size: 0.85rem;
-  color: #888;
+  color: #c6c9d4;
   font-weight: 500;
 }
 

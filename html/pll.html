@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PLL - Rubik Trainer</title>
+    <title>PLL</title>
+    <link rel="shortcut icon" href="../pic/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/pll.css" />
   </head>
   <body>
     <nav class="sidebar">
       <div class="brand">
-        <img src="../pic/c.jpg" alt="site-icon" />
-        <div class="site-name">RubikArt</div>
+        <img src="../pic/logo.png" alt="site-icon" />
+        <div class="site-name">
+          <span class="rubik">Rubik</span><span class="art">Art</span>
+        </div>
       </div>
       <a href="../index.html">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -51,6 +54,14 @@
         </svg>
         PLL</a
       >
+      <a href="./explore.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+          />
+        </svg>
+        Explore</a
+      >
       <a href="./settings.html">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path
@@ -71,6 +82,13 @@
         <div class="img-intro">
           <img src="../pic/gioi-thieu-ve-cong-thuc-pll.webp" />
         </div>
+        <div class="search-bar">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search PLL (e.g., Na, R U R')"
+          />
+        </div>
       </section>
 
       <div class="pll-container">
@@ -86,6 +104,21 @@
               <div class="pll-info">
                 <div class="pll-name">Aa perm</div>
                 <div class="pll-algorithm">x (R' U R') D2 (R U' R') D2 R2</div>
+              </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="x (R' U R') D2 (R U' R') D2 R2"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  experimental-setup-anchor="end"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                ></twisty-player>
               </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
@@ -106,7 +139,22 @@
               <img src="../Alg/pll/Ab.png" alt="Ab perm" class="pll-image" />
               <div class="pll-info">
                 <div class="pll-name">Ab perm</div>
-                <div class="pll-algorithm">x R2' D2 (R U R') D2 (R U'R)</div>
+                <div class="pll-algorithm">x R2' D2 (R U R') D2 (R U' R)</div>
+              </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="x R2' D2 (R U R') D2 (R U' R)"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
               </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
@@ -128,6 +176,21 @@
               <div class="pll-info">
                 <div class="pll-name">Ja perm</div>
                 <div class="pll-algorithm">y (R' U L' U2) (R U' R' U2) R L</div>
+              </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="y (R' U L' U2) (R U' R' U2) R L"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
               </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
@@ -154,6 +217,21 @@
                   (R U R' F') (R U R' U') R' F R2 U' R'
                 </div>
               </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="(R U R' F') (R U R' U') R' F R2 U' R'"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
+              </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
                   points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
@@ -178,6 +256,21 @@
                 <div class="pll-algorithm">
                   (R U R' U') (R' F R2 U') R' U' (R U R' F')
                 </div>
+              </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="(R U R' U') (R' F R2 U') R' U' (R U R' F')"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
               </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
@@ -204,6 +297,21 @@
                   F (R U' R' U') (R U R' F') (R U R' U') (R' F R F')
                 </div>
               </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="F (R U' R' U') (R U R' F') (R U R' U') (R' F R F')"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
+              </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
                   points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
@@ -227,6 +335,21 @@
                 <div class="pll-name">H perm</div>
                 <div class="pll-algorithm">(M2' U M2') U2 (M2' U M2')</div>
               </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="(M2' U M2') U2 (M2' U M2')"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
+              </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
                   points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
@@ -246,7 +369,22 @@
               <img src="../Alg/pll/Z.png" alt="Z perm" class="pll-image" />
               <div class="pll-info">
                 <div class="pll-name">Z perm</div>
-                <div class="pll-algorithm">M' U (M2' U M2') U (M' U2 M2)</div>
+                <div class="pll-algorithm">M' U (M2' U M2') U (M' U2 M2')</div>
+              </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="M' U (M2' U M2') U (M' U2 M2')"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
               </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
@@ -267,7 +405,22 @@
               <img src="../Alg/pll/Ua.png" alt="Ua perm" class="pll-image" />
               <div class="pll-info">
                 <div class="pll-name">Ua perm</div>
-                <div class="pll-algorithm">M2 U (M U2 M') U M2</div>
+                <div class="pll-algorithm">M2' U (M U2 M') U M2'</div>
+              </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="M2' U (M U2 M') U M2'"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
               </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
@@ -288,7 +441,22 @@
               <img src="../Alg/pll/Ub.png" alt="Ub perm" class="pll-image" />
               <div class="pll-info">
                 <div class="pll-name">Ub perm</div>
-                <div class="pll-algorithm">M2 U' (M U2 M') U' M2</div>
+                <div class="pll-algorithm">M2' U' (M U2 M') U' M2'</div>
+              </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="M2' U' (M U2 M') U' M2'"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
               </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
@@ -310,8 +478,23 @@
               <div class="pll-info">
                 <div class="pll-name">Ga perm</div>
                 <div class="pll-algorithm">
-                  R2 U (R' U R' U') (R U' R2) U'D (R' U R D')
+                  R2 U (R' U R' U') (R U' R2) U' D (R' U R D')
                 </div>
+              </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="R2 U (R' U R' U') (R U' R2) U' D (R' U R D')"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
               </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
@@ -333,8 +516,23 @@
               <div class="pll-info">
                 <div class="pll-name">Gb perm</div>
                 <div class="pll-algorithm">
-                  (R' U' R) UD' (R2 U R' U) (R U' R U') R2 D
+                  (R' U' R) U D' (R2 U R' U) (R U' R U') R2 D
                 </div>
+              </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="(R' U' R) U D' (R2 U R' U) (R U' R U') R2 D"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
               </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
@@ -359,6 +557,21 @@
                   R2 U' (R U' R U) (R' U R2 D') (U R U' R') D
                 </div>
               </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="R2 U' (R U' R U) (R' U R2 D') (U R U' R') D"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
+              </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
                   points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
@@ -379,8 +592,23 @@
               <div class="pll-info">
                 <div class="pll-name">Gd perm</div>
                 <div class="pll-algorithm">
-                  (R U R') U'D (R2 U' R U') (R' U R' U) R2 D'
+                  (R U R') U' D (R2 U' R U') (R' U R' U) R2 D'
                 </div>
+              </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="(R U R') U' D (R2 U' R U') (R' U R' U) R2 D'"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
               </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
@@ -402,8 +630,23 @@
               <div class="pll-info">
                 <div class="pll-name">V perm</div>
                 <div class="pll-algorithm">
-                  (R' U R' U') (R D' R' D) R' UD' (R2 U' R2' D R2)
+                  (R' U R' U') (R D' R' D) R' U D' (R2 U' R2' D R2)
                 </div>
+              </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="(R' U R' U') (R D' R' D) R' U D' (R2 U' R2' D R2)"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
               </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
@@ -428,6 +671,21 @@
                   R' U' F' (R U R' U') (R' F R2 U') (R' U' R U) (R' U R)
                 </div>
               </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg=" R' U' F' (R U R' U') (R' F R2 U') (R' U' R U) (R' U R)"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
+              </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
                   points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
@@ -450,6 +708,21 @@
                 <div class="pll-algorithm">
                   x'(R U' R' D) (R U R' D') (R U R' D) (R U' R' D')
                 </div>
+              </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="x' (R U' R' D) (R U R' D') (R U R' D) (R U' R' D')"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-stickering="PLL"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-setup-anchor="end"
+                ></twisty-player>
               </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
@@ -474,6 +747,21 @@
                   (R U' R' U') (R U R D) (R' U' R D') R' U2 R'
                 </div>
               </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="(R U' R' U') (R U R D) (R' U' R D') R' U2 R'"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-setup-anchor="end"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-stickering="PLL"
+                ></twisty-player>
+              </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
                   points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
@@ -496,6 +784,21 @@
                 <div class="pll-algorithm">
                   y' (R' U2 R' D') (R U' R' D) (R U R U') (R' U' R)
                 </div>
+              </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg=" y' (R' U2 R' D') (R U' R' D) (R U R U') (R' U' R)"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-setup-anchor="end"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-stickering="PLL"
+                ></twisty-player>
               </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
@@ -520,6 +823,21 @@
                   R U R' U (R U R' F') (R U R' U') R' F R2 U' R' U2 R U' R'
                 </div>
               </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="R U R' U (R U R' F') (R U R' U') R' F R2 U' R' U2 R U' R'"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-setup-anchor="end"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-stickering="PLL"
+                ></twisty-player>
+              </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
                   points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
@@ -543,6 +861,21 @@
                   (r' D' F r U' r' F' D) (r2 U r' U' r' F r F')
                 </div>
               </div>
+              <div class="alg-3d">
+                <twisty-player
+                  alg="(r' D' F r U' r' F' D) (r2 U r' U' r' F r F')"
+                  viewer-link="none"
+                  background="white"
+                  hint-facelets="none"
+                  experimental-setup-anchor="end"
+                  style="
+                    background: rgba(0, 191, 255, 0.1);
+                    border-radius: 15px;
+                    width: 180px;
+                  "
+                  experimental-stickering="PLL"
+                ></twisty-player>
+              </div>
               <svg class="star-icon" viewBox="0 0 24 24">
                 <polygon
                   points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"
@@ -558,6 +891,11 @@
         </div>
       </div>
     </main>
+    <script
+      src="https://cdn.cubing.net/v0/js/cubing/twisty"
+      type="module"
+      defer
+    ></script>
     <script src="../js/pll.js"></script>
   </body>
 </html>

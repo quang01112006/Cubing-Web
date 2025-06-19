@@ -11,18 +11,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #9e9393;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
   color: #1a1a1a;
   padding: 20px;
-  gap: 10px;
 }
 .brand img {
-  width: 50px;
+  width: 70px;
 }
 .site-name {
   font-size: 30px;
   font-weight: 900;
   font-family: sans-serif;
+}
+.rubik {
+  color: #eaeaea;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+.art {
+  color: #00bfff;
+  text-shadow: 0 0 20px rgba(0, 191, 255, 0.7);
 }
 a svg {
   width: 20px;
@@ -35,11 +43,14 @@ a svg {
   top: 0;
   left: 0;
   width: 250px;
-  height: 100%;
-  background: linear-gradient(180deg, #2d2d2d 0%, #1a1a1a 100%);
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
-  border-right: 1px solid #333;
-  box-sizing: border-box;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    rgba(26, 26, 26, 0.95) 0%,
+    rgba(28, 34, 65, 0.98) 100%
+  );
+
+  border-right: 1px solid rgba(9, 39, 175, 0.1);
   z-index: 1000;
 }
 
@@ -50,14 +61,20 @@ a svg {
   padding: 15px 25px;
   text-decoration: none;
   transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid rgba(2, 183, 255, 0.1);
   font-weight: 500;
 }
 
 .sidebar a:hover {
-  background: linear-gradient(90deg, #53555a, #404040);
-  padding-left: 30px;
-  border-left: 3px solid #4a90e2;
+  color: #00bfff;
+  background: rgba(0, 191, 255, 0.1);
+  border-left: 2px solid #00bfff;
+  transform: translateX(8px);
+  width: 190px;
+}
+
+a:hover svg {
+  fill: #00bfff;
 }
 
 .sidebar a:active {
@@ -70,5 +87,5 @@ main {
   padding: 0;
   width: calc(100% - 250px);
   min-height: 100vh;
-  background: linear-gradient(to left, rgb(44, 41, 41), rgb(81, 81, 85));
+  background: linear-gradient(90deg, #1a1a1a 0%, #1c2241 100%);
 }
