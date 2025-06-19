@@ -1,5 +1,6 @@
 const moves = ["U", "D", "L", "R", "F", "B"];
 const modifiers = ["", "'", "2"];
+
 function generateScramble() {
   let scramble = [];
   let lastMove = null;
@@ -12,12 +13,17 @@ function generateScramble() {
   }
   return scramble.join(" ");
 }
-document.getElementById("scramble").innerHTML = generateScramble();
+let firstScramble = (document.getElementById("scramble").innerHTML =
+  generateScramble());
+document
+  .querySelector("#scramble-preview twisty-player")
+  .setAttribute("alg", firstScramble);
+
 let startTime = 0;
 let timePassed = 0;
 let isRunning = false;
 let timerId = null;
-let solves = [];
+let solves = JSON.parse(localStorage.getItem("solvesList")) || [];
 
 function updateTimer() {
   let now = Date.now();
@@ -34,10 +40,15 @@ function startTimer() {
 function stopTimer() {
   clearInterval(timerId);
   solves.push(Number(timePassed.toFixed(2)));
+  localStorage.setItem("solvesList", JSON.stringify(solves));
   timerId = null;
   isRunning = false;
   updateSolvesList();
-  document.getElementById("scramble").innerHTML = generateScramble();
+  let scramble = (document.getElementById("scramble").innerHTML =
+    generateScramble());
+  document
+    .querySelector("#scramble-preview twisty-player")
+    .setAttribute("alg", scramble);
   document.getElementById("pb").innerHTML = showPb();
   document.getElementById("worst").innerHTML = showWorst();
   document.getElementById("ao5").innerHTML = showAo5();
@@ -59,10 +70,12 @@ document.addEventListener("keyup", function (event) {
 });
 
 function showPb() {
+  if (solves.length === 0) return "-";
   const pb = Math.min(...solves);
   return pb;
 }
 function showWorst() {
+  if (solves.length === 0) return "-";
   const pb = Math.max(...solves);
   return pb;
 }
@@ -79,6 +92,7 @@ function showAo5() {
 }
 
 function showMean() {
+  if (solves.length === 0) return "-";
   let recentSolves = solves.slice();
   let mean =
     recentSolves.reduce((sum, time) => sum + time, 0) / recentSolves.length;
@@ -112,28 +126,30 @@ function updateSolvesList() {
     });
   document.querySelector(".solves-list").innerHTML = html;
 }
+function updateStats() {
+  document.getElementById("pb").innerHTML = showPb();
+  document.getElementById("worst").innerHTML = showWorst();
+  document.getElementById("ao5").innerHTML = showAo5();
+  document.getElementById("mean").innerHTML = showMean();
+  document.getElementById("ao12").innerHTML = showAo12();
+  document.getElementById("total-solves").innerHTML = showTotalSolves();
+}
 
-document.getElementById("bg-upload").addEventListener("change", function (e) {
-  const file = e.target.files[0];
-  if (!file) return;
-
-  const reader = new FileReader();
-  reader.onload = function (event) {
-    const main = document.querySelector("main"); // <- fix chỗ này
-    main.style.backgroundImage = `url(${event.target.result})`;
-    main.style.backgroundSize = "cover";
-    main.style.backgroundPosition = "center";
-  };
-  reader.readAsDataURL(file);
+updateSolvesList();
+updateStats();
+document.getElementById("clearBtn").addEventListener("click", function () {
+  if (confirm("Clear all stats?")) {
+    solves = [];
+    localStorage.removeItem("solvesList");
+    updateSolvesList();
+    updateStats();
+  }
 });
 
-document.getElementById("color-picker").addEventListener("input", function (e) {
-  const color = e.target.value;
 
-  // Áp dụng màu cho timer và scramble
-  document.getElementById("time").style.color = color;
-  document.getElementById("scramble").style.color = color;
-
-  // Lưu vào localStorage
-  localStorage.setItem("textColor", color);
-});
+const bg = localStorage.getItem("timerBackground");
+if (bg) {
+  document.querySelector("main").style.backgroundImage = `url(${bg})`;
+  document.querySelector("main").style.backgroundSize = "cover";
+  document.querySelector("main").style.backgroundPosition = "center";
+}
