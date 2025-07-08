@@ -1,5 +1,294 @@
-<script src="https://cdn.cubing.net/v0/js/cubing/twisty" type="module" defer></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .about {
+        width: 100%;
+        padding: 40px 20px;
+      }
+      .carousel-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        height: 500px;
+        margin: 0 auto;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-This is an example for the <a href="https://js.cubing.net/cubing/#show-alg">cubing.js documentation</a>.
+      .carousel {
+        display: flex;
+        align-items: center;
+        transition: transform 0.5s ease;
+        position: relative;
+        width: 100%;
+        justify-content: center;
+      }
 
-<twisty-player alg="R U R' U R U2' R'"></twisty-player>
+      .card {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+        width: 400px;
+        height: 450px;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        color: white;
+        border-radius: 25px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+        box-shadow: 0 10px 30px rgba(0, 191, 255, 0.2);
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity: 0;
+        transform: scale(0.7) translateX(0);
+        z-index: 0;
+        border: 2px solid rgba(0, 191, 255, 0.3);
+      }
+
+      .card-content {
+        padding: 30px 25px 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .card-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #00bfff;
+        text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+      }
+
+      .card-description {
+        font-size: 16px;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: 20px;
+      }
+
+      .card-image {
+        width: 100%;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 0 0 25px 25px;
+        backdrop-filter: blur(10px);
+      }
+
+      .card img {
+        width: 90%;
+        height: 90%;
+        object-fit: contain;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .card.active {
+        transform: scale(1) translateX(0);
+        opacity: 1;
+        z-index: 3;
+        box-shadow: 0 20px 50px rgba(0, 191, 255, 0.4);
+      }
+
+      .card.left {
+        transform: scale(0.85) translateX(-300px);
+        opacity: 0.7;
+        z-index: 2;
+      }
+
+      .card.right {
+        transform: scale(0.85) translateX(300px);
+        opacity: 0.7;
+        z-index: 2;
+      }
+
+      .card.hide-left {
+        transform: scale(0.6) translateX(-600px);
+        opacity: 0;
+        z-index: 1;
+      }
+
+      .card.hide-right {
+        transform: scale(0.6) translateX(600px);
+        opacity: 0;
+        z-index: 1;
+      }
+
+      .nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: linear-gradient(135deg, #00bfff, #0099cc);
+        border: none;
+        color: white;
+        font-size: 24px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 5;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 191, 255, 0.3);
+      }
+
+      .nav:hover {
+        background: linear-gradient(135deg, #0099cc, #0088bb);
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 8px 25px rgba(0, 191, 255, 0.5);
+      }
+
+      .nav.prev {
+        left: 20px;
+      }
+
+      .nav.next {
+        right: 20px;
+      }
+
+      .placeholder-img {
+        width: 90%;
+        height: 90%;
+        background: linear-gradient(135deg, #4a90e2, #67b7f7);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        color: white;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="about">
+      <div class="carousel-wrapper">
+        <button class="nav prev">‹</button>
+
+        <div class="carousel">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-title">Timer & Practice</div>
+              <div class="card-description">
+                Luyện tập với timer, scramble tự động, lưu thành tích và cá nhân
+                hóa giao diện.
+              </div>
+            </div>
+            <div class="card-image">
+              <img src="./pic/timer.png" alt="Timer Interface" />
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div class="card-title">Algorithms</div>
+              <div class="card-description">
+                Học và thực hành các thuật toán giải Rubik với hướng dẫn chi
+                tiết từng bước.
+              </div>
+            </div>
+            <div class="card-image">
+              <img src="./pic/alg.webp" alt="Rubik Algorithms" />
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div class="card-title">Rubik 3x3</div>
+              <div class="card-description">
+                Khối Rubik 3x3 cổ điển - nền tảng cho mọi speedcuber và người
+                mới bắt đầu.
+              </div>
+            </div>
+            <div class="card-image">
+              <img src="./pic/3d.jpg" alt="Rubik 3x3" />
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div class="card-title">Rubik 4x4</div>
+              <div class="card-description">
+                Thử thách nâng cao với Rubik 4x4 - đòi hỏi kỹ thuật và kiên nhẫn
+                hơn.
+              </div>
+            </div>
+            <div class="card-image">
+              <div class="placeholder-img">🔷</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div class="card-title">Rubik 5x5</div>
+              <div class="card-description">
+                Cấp độ chuyên gia với Rubik 5x5 - thử thách cuối cùng cho những
+                cao thủ.
+              </div>
+            </div>
+            <div class="card-image">
+              <div class="placeholder-img">💎</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="nav next">›</button>
+      </div>
+    </section>
+
+    <script>
+      const cards = document.querySelectorAll(".card");
+      const prevBtn = document.querySelector(".nav.prev");
+      const nextBtn = document.querySelector(".nav.next");
+      let current = 2;
+
+      function updateCarousel() {
+        cards.forEach((card, i) => {
+          card.classList.remove(
+            "active",
+            "left",
+            "right",
+            "hide-left",
+            "hide-right"
+          );
+
+          if (i === current) {
+            card.classList.add("active");
+          } else if (i === current - 1) {
+            card.classList.add("left");
+          } else if (i === current + 1) {
+            card.classList.add("right");
+          } else if (i < current - 1) {
+            card.classList.add("hide-left");
+          } else if (i > current + 1) {
+            card.classList.add("hide-right");
+          }
+        });
+      }
+
+      prevBtn.addEventListener("click", () => {
+        current = (current - 1 + cards.length) % cards.length;
+        updateCarousel();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        current = (current + 1) % cards.length;
+        updateCarousel();
+      });
+
+      updateCarousel();
+    </script>
+  </body>
+</html>

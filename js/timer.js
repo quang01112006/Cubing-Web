@@ -5,7 +5,7 @@ function generateScramble() {
   let scramble = [];
   let lastMove = null;
   while (scramble.length < 22) {
-    let move = moves[Math.floor(Math.random() * 6)];
+    let move = moves[Math.floor(Math.random() * 6)]; //random [0;6)
     if (move === lastMove) continue;
     let modifier = modifiers[Math.floor(Math.random() * 3)];
     scramble.push(move + modifier);
@@ -17,13 +17,13 @@ let firstScramble = (document.getElementById("scramble").innerHTML =
   generateScramble());
 document
   .querySelector("#scramble-preview twisty-player")
-  .setAttribute("alg", firstScramble);
+  .setAttribute("alg", firstScramble); //giá trị của alg = firtScr
 
 let startTime = 0;
 let timePassed = 0;
 let isRunning = false;
 let timerId = null;
-let solves = JSON.parse(localStorage.getItem("solvesList")) || [];
+let solves = JSON.parse(localStorage.getItem("solvesList")) || []; //JSON.parse: biến str -> []
 
 function updateTimer() {
   let now = Date.now();
@@ -145,7 +145,6 @@ document.getElementById("clearBtn").addEventListener("click", function () {
     updateStats();
   }
 });
-
 
 const bg = localStorage.getItem("timerBackground");
 if (bg) {

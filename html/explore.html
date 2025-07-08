@@ -4,7 +4,7 @@
     <title>F2L</title>
     <link rel="shortcut icon" href="../pic/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/f2l.css" />
+    <link rel="stylesheet" href="../css/explore.css" />
   </head>
   <body>
     <nav class="sidebar">
@@ -71,6 +71,431 @@
         Settings</a
       >
     </nav>
-    <main></main>
+    <main>
+      <h1>Explore the World of Cubes</h1>
+      <div class="standard-cubes">
+        <div class="rubik-item" data-type="2x2">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="2x2x2"
+            alg="R U U' R'"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+
+          <div class="cube-info">
+            <h2>2x2x2 Cube</h2>
+            <div class="facts"></div>
+          </div>
+        </div>
+
+        <div class="rubik-item" data-type="3x3">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="3x3x3"
+            alg=" R R' U U' L L' D D' F F'"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>3x3x3 Cube</h2>
+            <div class="facts">
+              Rubik 3x3 là khối lập phương biểu tượng đã tạo nên cơn sốt toàn
+              cầu kể từ thập niên 1980. Đây là một trong những puzzle phổ biến
+              nhất thế giới, góp phần tạo ra cả một cộng đồng speedcubing rộng
+              lớn và các giải đấu quốc tế. Với mức độ khó vừa phải, 3x3 phù hợp
+              cho cả người mới và dân chơi chuyên nghiệp.
+            </div>
+          </div>
+        </div>
+
+        <div class="rubik-item" data-type="4x4">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="4x4x4"
+            alg="r U2 U2' r' R R' d d'"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>4x4x4 Cube</h2>
+            <div class="facts">
+              Còn gọi là Rubik Revenge, 4x4 là phiên bản nâng cấp từ 3x3 với
+              nhiều thử thách hơn. Nó không có tâm cố định, dễ bị parity error,
+              nên khó hơn đáng kể. Thích hợp cho người chơi đã quen 3x3 và muốn
+              lên level.
+            </div>
+          </div>
+        </div>
+
+        <div class="rubik-item" data-type="5x5">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="5x5x5"
+            alg="3R 3R' 2U 2U' F F'"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>5x5x5 Cube</h2>
+            <div class="facts">
+              Là phiên bản mở rộng từ 3x3, Rubik 5x5 nâng độ phức tạp lên rõ rệt
+              với nhiều layer hơn và thêm các "center" và "edge" nhỏ cần xử lý.
+              Dù khó hơn nhưng vẫn rất phổ biến trong cộng đồng speedcubing. Phù
+              hợp cho người đã quen 3x3 và muốn nâng trình.
+            </div>
+          </div>
+        </div>
+
+        <div class="rubik-item" data-type="6x6">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="6x6x6"
+            alg="Rw Rw' 3U 3U' L L'"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>6x6x6 Cube</h2>
+            <div class="facts">
+              Rubik 6x6 tăng độ khó với số lượng mảnh lớn hơn và không có center
+              cố định, khiến việc xếp đúng vị trí ban đầu khó hơn. Dễ gặp lỗi
+              như parity, cần thuật toán riêng để xử lý. Dành cho người đã có
+              kinh nghiệm với 4x4 hoặc 5x5.
+            </div>
+          </div>
+        </div>
+
+        <div class="rubik-item" data-type="7x7">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="7x7x7"
+            alg="R R' 2R 2R' 3R 3R'"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>7x7x7 Cube</h2>
+            <div class="facts">
+              Rubik 7x7 là phiên bản cao cấp nhất trong dòng cube NxN cơ bản. Số
+              lượng mảnh nhiều khiến thời gian giải lâu hơn và cần sự kiên nhẫn
+              cao. Tuy nhiên, khi nắm vững từ 4x4 trở lên thì 7x7 chủ yếu là sự
+              lặp lại, nên không quá phức tạp như tưởng tượng.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="standard-cubes">
+        <div class="rubik-item" data-type="pyraminx">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="pyraminx"
+            alg="r r' U2 U2' R R'"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>Pyraminx</h2>
+            <div class="facts">
+              Pyraminx có hình dạng kim tự tháp với 4 đỉnh xoay được, là một
+              trong những biến thể Rubik nổi tiếng nhất. Mặc dù trông khác lạ,
+              nhưng cấu trúc đơn giản và ít mảnh khiến nó khá dễ tiếp cận.
+            </div>
+          </div>
+        </div>
+
+        <div class="rubik-item" data-type="megaminx">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="megaminx"
+            alg="R3 R3' U4 U4'"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>Megaminx</h2>
+            <div class="facts">
+              Megaminx có 12 mặt và 50 mảnh chuyển động, khiến nó trông như một
+              Rubik 3x3 phóng đại về độ phức tạp. Dù áp dụng logic xoay tương
+              tự, thời gian giải và độ thử thách tăng lên đáng kể.
+            </div>
+          </div>
+        </div>
+
+        <div class="rubik-item" data-type="skewb">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="skewb"
+            alg="R R' U' U L2 L2'"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>Skewb</h2>
+            <div class="facts">
+              Skewb xoay quanh các đỉnh thay vì các mặt như Rubik truyền thống,
+              tạo ra chuyển động "chéo" độc đáo. Với vẻ ngoài đơn giản nhưng
+              cách xoay lạ lẫm, Skewb là một thử thách thú vị cho người mới muốn
+              khám phá những biến thể khác biệt của khối Rubik.
+            </div>
+          </div>
+        </div>
+
+        <div class="rubik-item" data-type="clock">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="clock"
+            alg="UR4+ UR4- DR3- DR3+ ALL4- y2"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>Clock</h2>
+            <div class="facts">
+              Một biến thể độc đáo của thế giới Rubik, nơi bạn không xoay các
+              mặt mà điều khiển 18 kim đồng hồ bằng các nút và bánh xe. Thử
+              thách tưởng chừng đơn giản: đưa tất cả về 12 giờ, nhưng lại đòi
+              hỏi chiến lược tinh tế và tư duy logic đỉnh cao.
+            </div>
+          </div>
+        </div>
+
+        <div class="rubik-item" data-type="fto">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="fto"
+            alg="R R' r r' D D' U2 U2'"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>FTO</h2>
+            <div class="facts">
+              FTO là một biến thể hình bát diện với cơ chế xoay theo mặt, đem
+              lại trải nghiệm giải hoàn toàn mới lạ. Hình dáng và cách xoay độc
+              đáo khiến nó trở nên hấp dẫn với những ai đã quen tay với các khối
+              Rubik chuẩn.
+            </div>
+          </div>
+        </div>
+
+        <div class="rubik-item" data-type="kilominx">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="kilominx"
+            alg="L L' D2' D2 B2' B2"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>Kilominx</h2>
+            <div class="facts">
+              Kilominx là phiên bản đơn giản hơn của Megaminx, tương tự như
+              Rubik 3x3 nhưng với hình dạng mười hai mặt. Nhờ số lượng mảnh ít
+              hơn và cách xoay quen thuộc, đây là lựa chọn tuyệt vời cho những
+              ai muốn bước đầu khám phá các khối dodecahedron.
+            </div>
+          </div>
+        </div>
+
+        <div class="rubik-item" data-type="master_tetraminx">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="master_tetraminx"
+            alg="r r' L L' D2' D2 B2' B2"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>Master Tetraminx</h2>
+            <div class="facts">
+              Là phiên bản nâng cấp từ Tetraminx, khối này có nhiều mảnh hơn và
+              độ xoay phức tạp hơn, mang lại thử thách đáng kể cho người chơi.
+              Vừa quen vừa lạ, phù hợp với ai thích phá cách từ các khối cơ bản.
+            </div>
+          </div>
+        </div>
+
+        <div class="rubik-item" data-type="baby_fto">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="baby_fto"
+            alg="U' U F F' R2 R2'"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>Baby FTO</h2>
+            <div class="facts">
+              Là phiên bản đơn giản hóa từ Face Turning Octahedron (FTO), Baby
+              FTO giữ lại cơ chế xoay mặt đặc trưng nhưng số lượng mảnh ít hơn.
+              Phù hợp cho người mới làm quen với khối hình tám mặt, vừa dễ tiếp
+              cận vừa giúp hiểu rõ logic FTO trước khi chuyển sang bản đầy đủ.
+            </div>
+          </div>
+        </div>
+
+        <div class="rubik-item" data-type="gigaminx">
+          <twisty-player
+            style="
+              width: 300px;
+              height: 250px;
+              margin: auto;
+              background: #213466;
+              box-shadow: 0 0 0 5px #00c3ff, 0 0 40px rgba(0, 68, 255, 0.6);
+              border-radius: 15px;
+            "
+            puzzle="gigaminx"
+            alg="2R 2R' F2' F2 U5 L5"
+            hint-facelets="none"
+            back-view="side-by-side"
+            background="none"
+            viewer-link="none"
+          ></twisty-player>
+          <div class="cube-info">
+            <h2>Gigaminx</h2>
+            <div class="facts">
+              Gigaminx mở rộng từ Megaminx với thêm nhiều lớp, đòi hỏi tư duy
+              nâng cao và thời gian giải lâu hơn. Là khối phổ biến trong cộng
+              đồng speedcubing nâng cao, đồng thời rất được ưa chuộng để trưng
+              bày nhờ vẻ ngoài ấn tượng.
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script
+      src="https://cdn.cubing.net/v0/js/cubing/twisty"
+      type="module"
+      defer
+    ></script>
+    <script src="../js/explore.js"></script>
   </body>
 </html>
