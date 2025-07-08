@@ -1,0 +1,60 @@
+.f2l-title {
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 40px;
+  color: #00bfff;
+  text-shadow: 0 0 20px rgba(0, 191, 255, 0.7);
+}
+.f2l-intro {
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 100px;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+.f2l-item img {
+  filter: drop-shadow(0 0 10px #00ffff);
+}
+.f2l-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.f2l-item {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 191, 255, 0.2);
+  border-radius: 15px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  user-select: none;
+}
+.f2l-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 191, 255, 0.3);
+  border-color: #00bfff;
+}
+.case-number {
+  font-size: 20px;
+  font-weight: bold;
+  color: #00bfff;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.f2l-alg {
+  flex: 1;
+  background: rgba(0, 191, 255, 0.1);
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  border-radius: 8px;
+  padding: 5px;
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+  margin-left: 20px;
+  letter-spacing: -2px;
+  line-height: 1.5;
+}
