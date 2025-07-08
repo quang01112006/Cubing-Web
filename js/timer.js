@@ -146,9 +146,21 @@ document.getElementById("clearBtn").addEventListener("click", function () {
   }
 });
 
-const bg = localStorage.getItem("timerBackground");
-if (bg) {
-  document.querySelector("main").style.backgroundImage = `url(${bg})`;
-  document.querySelector("main").style.backgroundSize = "cover";
-  document.querySelector("main").style.backgroundPosition = "center";
-}
+window.addEventListener("DOMContentLoaded", () => {
+  const timerColor = localStorage.getItem("timerColor") || "#e2e8ee";
+  const scrambleColor = localStorage.getItem("scrambleColor") || "#e2e8ee";
+
+  const timeEl = document.getElementById("time"); // chỗ hiện thời gian
+  const scrambleEl = document.getElementById("scramble");
+
+  if (timeEl) timeEl.style.color = timerColor;
+  if (scrambleEl) scrambleEl.style.color = scrambleColor;
+
+  // Nền
+  const bg = localStorage.getItem("timerBackground");
+  if (bg) {
+    document.querySelector("main").style.backgroundImage = `url(${bg})`;
+    document.querySelector("main").style.backgroundSize = "cover";
+    document.querySelector("main").style.backgroundPosition = "center";
+  }
+});

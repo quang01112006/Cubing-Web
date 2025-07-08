@@ -89,8 +89,3 @@ main {
   min-height: 100vh;
   background: linear-gradient(90deg, #1a1a1a 0%, #1c2241 100%);
 }
-main::after {
-  content: "";
-  display: block;
-  height: 100px;
-}
