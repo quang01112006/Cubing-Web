@@ -202,7 +202,7 @@
             <img src="./pic/algorithm.png" />
             <h3 class="card-title">Algorithm</h3>
             <p class="card-description">
-              100+ công thức CFOP kết hợp minh họa 2D và 3D.
+              ~200 công thức CFOP kết hợp minh họa 2D và 3D.
             </p>
           </div>
 
@@ -216,47 +216,5 @@
         </div>
       </section>
     </main>
-    <script>
-      const cards = document.querySelectorAll(".card");
-      const prevBtn = document.querySelector(".nav.prev");
-      const nextBtn = document.querySelector(".nav.next");
-      let current = 2;
-
-      function updateCarousel() {
-        cards.forEach((card, i) => {
-          card.classList.remove(
-            "active",
-            "left",
-            "right",
-            "hide-left",
-            "hide-right"
-          );
-
-          if (i === current) {
-            card.classList.add("active");
-          } else if (i === current - 1) {
-            card.classList.add("left");
-          } else if (i === current + 1) {
-            card.classList.add("right");
-          } else if (i < current - 1) {
-            card.classList.add("hide-left");
-          } else if (i > current + 1) {
-            card.classList.add("hide-right");
-          }
-        });
-      }
-
-      prevBtn.addEventListener("click", () => {
-        current = (current - 1 + cards.length) % cards.length;
-        updateCarousel();
-      });
-
-      nextBtn.addEventListener("click", () => {
-        current = (current + 1) % cards.length;
-        updateCarousel();
-      });
-
-      updateCarousel();
-    </script>
   </body>
 </html>

@@ -63,7 +63,8 @@ document.addEventListener("keydown", function (event) {
 document.addEventListener("keyup", function (event) {
   if (event.code === "Space") {
     event.preventDefault();
-    document.getElementById("time").style.color = "#e2e8ee";
+    const timerColor = localStorage.getItem("timerColor") || "#e2e8ee";
+    document.getElementById("time").style.color = timerColor;
     if (!isRunning) startTimer();
     else stopTimer();
   }
