@@ -1,6 +1,6 @@
+// Tạo scramble
 const moves = ["U", "D", "L", "R", "F", "B"];
 const modifiers = ["", "'", "2"];
-
 function generateScramble() {
   let scramble = [];
   let lastMove = null;
@@ -13,11 +13,13 @@ function generateScramble() {
   }
   return scramble.join(" ");
 }
-let firstScramble = (document.getElementById("scramble").innerHTML =
-  generateScramble());
+
+// show scramble khi mở web
+let scramble = generateScramble();
+document.getElementById("scramble").innerHTML = scramble;
 document
   .querySelector("#scramble-preview twisty-player")
-  .setAttribute("alg", firstScramble); //giá trị của alg = firtScr
+  .setAttribute("alg", scramble); //giá trị của alg = firtScr
 
 let startTime = 0;
 let timePassed = 0;
@@ -40,12 +42,12 @@ function startTimer() {
 function stopTimer() {
   clearInterval(timerId);
   solves.push(Number(timePassed.toFixed(2)));
-  localStorage.setItem("solvesList", JSON.stringify(solves));
+  localStorage.setItem("solvesList", JSON.stringify(solves)); //chuyển mảng sang str
   timerId = null;
   isRunning = false;
   updateSolvesList();
-  let scramble = (document.getElementById("scramble").innerHTML =
-    generateScramble());
+  scramble = generateScramble();
+  document.getElementById("scramble").innerHTML = scramble;
   document
     .querySelector("#scramble-preview twisty-player")
     .setAttribute("alg", scramble);
@@ -57,7 +59,8 @@ function stopTimer() {
   document.getElementById("total-solves").innerHTML = showTotalSolves();
 }
 document.addEventListener("keydown", function (event) {
-  document.getElementById("time").style.color = "aqua";
+  if(event.code === 'Space')
+    document.getElementById("time").style.color = "aqua";
 });
 
 document.addEventListener("keyup", function (event) {
