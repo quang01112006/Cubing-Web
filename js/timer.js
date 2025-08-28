@@ -5,7 +5,7 @@ function generateScramble() {
   let scramble = [];
   let lastMove = null;
   while (scramble.length < 22) {
-    let move = moves[Math.floor(Math.random() * 6)]; //random [0;6)
+    let move = moves[Math.floor(Math.random() * 6)]; 
     if (move === lastMove) continue;
     let modifier = modifiers[Math.floor(Math.random() * 3)];
     scramble.push(move + modifier);
@@ -21,7 +21,7 @@ document
   .querySelector("#scramble-preview twisty-player")
   .setAttribute("alg", scramble); //giá trị của alg = firtScr
 
-let startTime = 0;
+let startTime = 5;
 let timePassed = 0;
 let isRunning = false;
 let timerId = null;
@@ -46,20 +46,16 @@ function stopTimer() {
   timerId = null;
   isRunning = false;
   updateSolvesList();
+  updateStats();
   scramble = generateScramble();
   document.getElementById("scramble").innerHTML = scramble;
   document
     .querySelector("#scramble-preview twisty-player")
     .setAttribute("alg", scramble);
-  document.getElementById("pb").innerHTML = showPb();
-  document.getElementById("worst").innerHTML = showWorst();
-  document.getElementById("ao5").innerHTML = showAo5();
-  document.getElementById("mean").innerHTML = showMean();
-  document.getElementById("ao12").innerHTML = showAo12();
-  document.getElementById("total-solves").innerHTML = showTotalSolves();
 }
+
 document.addEventListener("keydown", function (event) {
-  if(event.code === 'Space')
+  if (event.code === "Space")
     document.getElementById("time").style.color = "aqua";
 });
 
@@ -130,6 +126,7 @@ function updateSolvesList() {
     });
   document.querySelector(".solves-list").innerHTML = html;
 }
+
 function updateStats() {
   document.getElementById("pb").innerHTML = showPb();
   document.getElementById("worst").innerHTML = showWorst();
@@ -141,6 +138,8 @@ function updateStats() {
 
 updateSolvesList();
 updateStats();
+
+// clear btn
 document.getElementById("clearBtn").addEventListener("click", function () {
   if (confirm("Clear all stats?")) {
     solves = [];
@@ -151,17 +150,17 @@ document.getElementById("clearBtn").addEventListener("click", function () {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-  const timerColor = localStorage.getItem("timerColor") || "#e2e8ee";
-  const scrambleColor = localStorage.getItem("scrambleColor") || "#e2e8ee";
+  let timerColor = localStorage.getItem("timerColor") || "#e2e8ee";
+  let scrambleColor = localStorage.getItem("scrambleColor") || "#e2e8ee";
 
-  const timeEl = document.getElementById("time"); // chỗ hiện thời gian
-  const scrambleEl = document.getElementById("scramble");
+  let timeEl = document.getElementById("time");
+  let scrambleEl = document.getElementById("scramble");
 
-  if (timeEl) timeEl.style.color = timerColor;
-  if (scrambleEl) scrambleEl.style.color = scrambleColor;
+  timeEl.style.color = timerColor;
+  scrambleEl.style.color = scrambleColor;
 
   // Nền
-  const bg = localStorage.getItem("timerBackground");
+  let bg = localStorage.getItem("timerBackground");
   if (bg) {
     document.querySelector("main").style.backgroundImage = `url(${bg})`;
     document.querySelector("main").style.backgroundSize = "cover";
