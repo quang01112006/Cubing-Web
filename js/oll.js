@@ -4,6 +4,6 @@ document.querySelectorAll(".oll-item").forEach((item) => {
       return; //
     }
 
-    this.classList.toggle("expanded");
+    item.classList.toggle("expanded");
   });
 });

@@ -18,7 +18,6 @@ main {
   color: #00bfff;
   font-style: italic;
   text-align: center;
-  width: 20rem;
   font-size: 20px;
   text-shadow: 0 0 10px rgba(74, 144, 226, 0.3);
   margin-top: 100px;
@@ -129,8 +128,8 @@ main {
 /*Phần solves*/
 .solves-section {
   flex: 1;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .solves-title {
@@ -141,7 +140,7 @@ main {
 }
 
 .solves-list {
-  flex: 1;
+  /* flex: 1; */
   max-height: 480px;
   overflow-y: auto;
 }
@@ -173,9 +172,4 @@ main {
   font-weight: 500;
 }
 
-.no-solves {
-  color: #666;
-  font-style: italic;
-  text-align: center;
-  width: 10rem;
-}
+

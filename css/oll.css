@@ -19,9 +19,9 @@ h1 {
 .oll-container {
   max-width: 1000px;
   margin: 60px auto;
-  background-color: #212c40; /* Đậm hơn nhưng có xanh dương để nổi */
-  border: 1px solid #2e3b55; /* thêm viền xanh xám nhẹ */
-  box-shadow: 0 4px 20px rgba(0, 191, 255, 0.1); /* hiệu ứng nổi nhẹ */
+  background-color: #212c40;
+  border: 1px solid #2e3b55;
+  box-shadow: 0 4px 20px rgba(0, 191, 255, 0.1);
   border-radius: 12px;
   overflow: hidden;
 }

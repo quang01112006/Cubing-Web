@@ -85,13 +85,12 @@ const cubeFacts = {
 
 function randomFacts() {
   let cards = document.querySelectorAll(".rubik-item");
+  print(cards);
   cards.forEach((cube) => {
     let type = cube.dataset.type;
     let arrFact = cubeFacts[type];
     let randomIdx = Math.floor(Math.random() * arrFact.length);
     cube.querySelector(".facts").innerHTML = arrFact[randomIdx];
-    console.log("dataset:", cube.dataset);
-    console.log("type:", cube.dataset.type);
   });
 }
 randomFacts();
